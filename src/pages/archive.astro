@@ -1,0 +1,124 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Sample posts for now - replace with your actual CMS later
+const posts = [
+    {
+        slug: "medici-banking-empire",
+        title: "The Medici Bank: Renaissance Wealth Creation",
+        date_created: "2024-01-15",
+        tags: ["Historical Wealth", "Banking", "Renaissance"],
+        short_body: "Exploring how the Medici family built one of history's most powerful banking empires and transformed Florence into the financial capital of Europe."
+    },
+    {
+        slug: "roman-trade-networks", 
+        title: "Modern Lessons from Ancient Roman Trade",
+        date_created: "2024-01-10",
+        tags: ["Economic History", "Trade", "Ancient Rome"],
+        short_body: "What today's entrepreneurs can learn from the sophisticated trading networks that powered the Roman Empire's unprecedented wealth."
+    },
+    {
+        slug: "tulip-mania-lessons",
+        title: "The Rise and Fall of Tulip Mania",
+        date_created: "2024-01-05", 
+        tags: ["Market Bubbles", "Financial History", "Netherlands"],
+        short_body: "Examining the world's first recorded speculative bubble and the timeless lessons it teaches about human psychology and market dynamics."
+    }
+];
+---
+
+<Layout>
+    <div class="max-w-screen-xl bg-gray-100 shadow-2xl mx-auto flex-1 font-serif text-slate-900">
+        
+        <!-- Header Section -->
+        <section class="py-16" style="background-color: #9e383d;">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-5xl font-light text-white mb-4"
+                    style="font-family: 'Inter', 'Futura', 'Helvetica Neue', Arial, sans-serif;">
+                    Archive
+                </h1>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-200 font-sans">
+                    A complete collection of insights on wealth, history, and the timeless principles of prosperity.
+                </p>
+            </div>
+        </section>
+
+        <!-- Posts Grid -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="space-y-8">
+                    {posts.length > 0 ? (
+                        posts.map((post) => (
+                            <div class="border-b border-gray-200 pb-8 last:border-b-0">
+                                <div class="p-4 mx-auto">
+                                    <a href={`/blog/${post.slug}`} class="font-serif font-semibold">
+                                        <div class="flex flex-col gap-3">
+                                            <h2 class="text-3xl hover:text-slate-900">
+                                                {post.title}
+                                            </h2>
+                                            <div class="flex flex-wrap gap-2 mb-2">
+                                                {post.tags.map((tag) => (
+                                                    <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm">
+                                                        {tag}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                            <p class="font-sans text-gray-500 border-t-1 border-b-1 border-gray-300 py-2 mb-2">
+                                                {new Date(post.date_created).toLocaleDateString("en-US", {
+                                                    year: "numeric",
+                                                    month: "long",
+                                                    day: "numeric",
+                                                })}
+                                            </p>
+                                            <div class="font-sans text-gray-700 text-xl">
+                                                {post.short_body}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        ))
+                    ) : (
+                        <div class="text-center py-16">
+                            <h3 class="text-2xl font-semibold text-slate-800 mb-4">
+                                Coming Soon
+                            </h3>
+                            <p class="text-slate-600 font-sans">
+                                The archive is being prepared. Check back soon for fascinating insights into wealth through the ages.
+                            </p>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </section>
+
+        <!-- Topics Filter -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6 max-w-4xl text-center">
+                <h2 class="text-3xl font-semibold text-slate-800 mb-8">
+                    Browse by Topic
+                </h2>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="px-4 py-2 rounded-full text-sm font-medium text-slate-600 border border-gray-300">
+                        Historical Wealth
+                    </span>
+                    <span class="px-4 py-2 rounded-full text-sm font-medium text-slate-600 border border-gray-300">
+                        Modern Finance
+                    </span>
+                    <span class="px-4 py-2 rounded-full text-sm font-medium text-slate-600 border border-gray-300">
+                        Investment Strategy
+                    </span>
+                    <span class="px-4 py-2 rounded-full text-sm font-medium text-slate-600 border border-gray-300">
+                        Economic History
+                    </span>
+                    <span class="px-4 py-2 rounded-full text-sm font-medium text-slate-600 border border-gray-300">
+                        Wealth Psychology
+                    </span>
+                </div>
+                <p class="text-sm text-slate-500 mt-4 font-sans">
+                    Topic filtering coming soon
+                </p>
+            </div>
+        </section>
+    </div>
+</Layout>

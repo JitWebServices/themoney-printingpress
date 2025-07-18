@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<div class="max-w-screen-xl bg-gray-100 shadow-2xl mx-auto flex-1 font-serif text-slate-900">
+		
+		<!-- Header Section -->
+		<section class="py-16" style="background-color: #9e383d;">
+			<div class="container mx-auto px-6 text-center">
+				<h1 class="text-4xl md:text-5xl font-light text-white mb-4"
+					style="font-family: 'Inter', 'Futura', 'Helvetica Neue', Arial, sans-serif;">
+					Resources
+				</h1>
+				<p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-200 font-sans">
+					Tools, books, and references for understanding wealth through the ages.
+				</p>
+			</div>
+		</section>
+
+		<!-- Resources Grid -->
+		<section class="py-20 bg-white">
+			<div class="container mx-auto px-6 max-w-6xl">
+				
+				<!-- Books Section -->
+				<div class="mb-16">
+					<h2 class="text-3xl font-semibold text-slate-800 mb-8">
+						Essential Reading
+					</h2>
+					<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+						<div class="bg-gray-50 p-6 rounded-2xl shadow-sm">
+							<h3 class="text-xl font-semibold text-slate-800 mb-3">
+								Historical Finance
+							</h3>
+							<p class="text-slate-600 font-sans mb-4">
+								Classic works on the development of banking, markets, and wealth creation throughout history.
+							</p>
+							<ul class="text-sm text-slate-600 font-sans space-y-1">
+								<li>• "The Ascent of Money" - Niall Ferguson</li>
+								<li>• "A Monetary History" - Friedman & Schwartz</li>
+								<li>• "The House of Rothschild" - Niall Ferguson</li>
+							</ul>
+						</div>
+						
+						<div class="bg-gray-50 p-6 rounded-2xl shadow-sm">
+							<h3 class="text-xl font-semibold text-slate-800 mb-3">
+								Wealth Psychology
+							</h3>
+							<p class="text-slate-600 font-sans mb-4">
+								Understanding the mindset and behaviors that create and preserve wealth across generations.
+							</p>
+							<ul class="text-sm text-slate-600 font-sans space-y-1">
+								<li>• "The Millionaire Mind" - Thomas Stanley</li>
+								<li>• "Rich Dad Poor Dad" - Robert Kiyosaki</li>
+								<li>• "The Intelligent Investor" - Benjamin Graham</li>
+							</ul>
+						</div>
+						
+						<div class="bg-gray-50 p-6 rounded-2xl shadow-sm">
+							<h3 class="text-xl font-semibold text-slate-800 mb-3">
+								Economic History
+							</h3>
+							<p class="text-slate-600 font-sans mb-4">
+								Comprehensive studies on how economies and financial systems have evolved over time.
+							</p>
+							<ul class="text-sm text-slate-600 font-sans space-y-1">
+								<li>• "The Wealth of Nations" - Adam Smith</li>
+								<li>• "Capital" - Thomas Piketty</li>
+								<li>• "Debt: The First 5,000 Years" - David Graeber</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tools Section -->
+				<div class="mb-16">
+					<h2 class="text-3xl font-semibold text-slate-800 mb-8">
+						Financial Tools
+					</h2>
+					<div class="grid md:grid-cols-2 gap-8">
+						<div class="bg-gray-50 p-8 rounded-2xl shadow-sm">
+							<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
+								 style="background-color: #9e383d;">
+								<span class="text-white text-2xl">📊</span>
+							</div>
+							<h3 class="text-xl font-semibold text-slate-800 mb-4 text-center">
+								Wealth Calculators
+							</h3>
+							<p class="text-slate-600 font-sans text-center mb-6">
+								Historical purchasing power, inflation adjustments, and compound interest calculators.
+							</p>
+							<div class="text-center">
+								<span class="font-sans inline-block bg-gray-400 text-white font-semibold px-6 py-3 rounded-lg">
+									Coming Soon
+								</span>
+							</div>
+						</div>
+
+						<div class="bg-gray-50 p-8 rounded-2xl shadow-sm">
+							<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
+								 style="background-color: #9e383d;">
+								<span class="text-white text-2xl">📈</span>
+							</div>
+							<h3 class="text-xl font-semibold text-slate-800 mb-4 text-center">
+								Market Data
+							</h3>
+							<p class="text-slate-600 font-sans text-center mb-6">
+								Historical market performance, asset class returns, and economic indicators.
+							</p>
+							<div class="text-center">
+								<span class="font-sans inline-block bg-gray-400 text-white font-semibold px-6 py-3 rounded-lg">
+									Coming Soon
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- External Resources -->
+				<div class="mb-16">
+					<h2 class="text-3xl font-semibold text-slate-800 mb-8">
+						External Resources
+					</h2>
+					<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+						<div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition">
+							<h3 class="text-lg font-semibold text-slate-800 mb-2">
+								Federal Reserve Economic Data
+							</h3>
+							<p class="text-slate-600 font-sans text-sm mb-3">
+								Historical economic data and monetary policy information.
+							</p>
+							<a href="#" class="text-sm font-semibold" style="color: #9e383d;">
+								Visit FRED →
+							</a>
+						</div>
+						
+						<div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition">
+							<h3 class="text-lg font-semibold text-slate-800 mb-2">
+								Historical Statistics
+							</h3>
+							<p class="text-slate-600 font-sans text-sm mb-3">
+								Long-term economic and financial data from official sources.
+							</p>
+							<a href="#" class="text-sm font-semibold" style="color: #9e383d;">
+								Explore Data →
+							</a>
+						</div>
+						
+						<div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition">
+							<h3 class="text-lg font-semibold text-slate-800 mb-2">
+								Academic Research
+							</h3>
+							<p class="text-slate-600 font-sans text-sm mb-3">
+								Peer-reviewed studies on wealth, inequality, and financial history.
+							</p>
+							<a href="#" class="text-sm font-semibold" style="color: #9e383d;">
+								Browse Papers →
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Newsletter -->
+				<div class="text-center p-12 rounded-2xl" style="background-color: #9e383d;">
+					<h2 class="text-3xl font-semibold text-white mb-4">
+						Stay Updated
+					</h2>
+					<p class="text-gray-200 font-sans mb-8 max-w-2xl mx-auto">
+						Get notified when new resources are added to our collection.
+					</p>
+					<form class="flex flex-col sm:flex-row items-center gap-4 justify-center max-w-md mx-auto">
+						<input
+							type="email"
+							placeholder="your@email.com"
+							class="w-full px-4 py-3 rounded-lg text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+						/>
+						<button
+							type="submit"
+							class="px-6 py-3 bg-yellow-300 text-slate-900 font-semibold rounded-lg hover:bg-yellow-200 transition whitespace-nowrap"
+						>
+							Subscribe
+						</button>
+					</form>
+				</div>
+			</div>
+		</section>
+	</div>
+</Layout>

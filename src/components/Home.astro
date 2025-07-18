@@ -1,177 +1,217 @@
-<!-- Landing Page for Casa Serene Financial Services -->
-<div
-	class="max-w-screen-xl bg-gray-100 shadow-2xl mx-auto flex-1 font-serif text-slate-900"
->
+---
+// Sample recent posts - replace with actual CMS later
+const recentPosts = [
+    {
+        slug: "medici-banking-empire",
+        title: "The Medici Bank: Renaissance Wealth Creation",
+        date_created: "2024-01-15",
+        tags: ["Historical Wealth", "Banking", "Renaissance"],
+        short_body: "Exploring how the Medici family built one of history's most powerful banking empires and transformed Florence into the financial capital of Europe."
+    },
+    {
+        slug: "roman-trade-networks", 
+        title: "Modern Lessons from Ancient Roman Trade",
+        date_created: "2024-01-10",
+        tags: ["Economic History", "Trade", "Ancient Rome"],
+        short_body: "What today's entrepreneurs can learn from the sophisticated trading networks that powered the Roman Empire's unprecedented wealth."
+    },
+    {
+        slug: "tulip-mania-lessons",
+        title: "The Rise and Fall of Tulip Mania",
+        date_created: "2024-01-05", 
+        tags: ["Market Bubbles", "Financial History", "Netherlands"],
+        short_body: "Examining the world's first recorded speculative bubble and the timeless lessons it teaches about human psychology and market dynamics."
+    }
+];
+---
+
+<div class="max-w-screen-xl bg-gray-100 shadow-2xl mx-auto flex-1 text-slate-900">
+	
 	<!-- Hero Section -->
-	<section class="relative bg-slate-900 text-white">
+	<section class="relative" style="background: linear-gradient(135deg, #7f1d1d 0%, #9e383d 50%, #7f1d1d 100%);">
 		<img
-			src="https://images.pexels.com/photos/1578749/pexels-photo-1578749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-			alt="Elegant financial planning background"
-			class="w-full h-[600px] object-cover opacity-40"
+			src="https://images.pexels.com/photos/6802049/pexels-photo-6802049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+			alt="Historical wealth and money imagery"
+			class="w-full h-[500px] object-cover opacity-30"
 		/>
-		<div
-			class="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
-		>
-			<h1 class="text-5xl md:text-6xl font-semibold mb-4">
-				Casa Serene Financial Services
+		<div class="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-white">
+			<h1 class="text-4xl md:text-5xl font-light mb-6 victoria-font" 
+				style="font-family: 'Victoria', 'Times New Roman', serif; color: #d4af37;">
+				Exploring Wealth Through History
 			</h1>
-			<p class="text-lg md:text-xl max-w-2xl font-sans">
-				Where Wealth Meets Wisdom — Bespoke financial guidance for a
-				lasting legacy.
+			<p class="text-lg md:text-xl max-w-3xl leading-relaxed">
+				From ancient trade routes to modern financial markets, discover the timeless principles 
+				of wealth creation and the stories behind the world's greatest fortunes.
 			</p>
-			<a
-				href="#contact"
-				class="mt-8 font-sans inline-block bg-white text-slate-900 font-semibold px-6 py-3 rounded-lg hover:bg-gray-300 transition"
-			>
-				Begin Your Journey
-			</a>
 		</div>
 	</section>
 
-	<!-- About Section -->
-	<section class="py-20 bg-gray-100">
-		<div class="container mx-auto px-6 max-w-5xl text-center">
-			<h2 class="text-4xl font-semibold mb-6 text-slate-800">
-				Crafting Legacies Through Financial Excellence
-			</h2>
-			<p class="text-xl font-sans text-slate-700 mb-8">
-				Casa Serene is a boutique financial advisory firm dedicated to
-				helping discerning clients grow, protect, and preserve their
-				wealth with grace and sophistication. Our bespoke strategies are
-				designed for lasting impact.
-			</p>
-			<a
-				href="#contact"
-				class="font-sans inline-block bg-slate-800 text-white font-semibold px-6 py-3 rounded-lg hover:bg-slate-700 transition"
-			>
-				Learn More About Us
-			</a>
-		</div>
-	</section>
-
-	<!-- Visual Highlight Section -->
-	<section class="bg-white py-20">
-		<div
-			class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center"
-		>
-			<!-- Image -->
-			<div class="w-full h-80 md:h-full">
-				<img
-					src="https://adamchristing.com/wp-content/uploads/2022/05/two-people-in-productive-business-meeting-addresses-agenda-items-and-to-do-list.jpg"
-					alt="Professional financial advisor meeting"
-					class="w-full h-full object-cover rounded-2xl shadow-lg"
-				/>
-			</div>
-
-			<!-- Text Content -->
-			<div class="text-slate-800 font-serif">
-				<h2 class="text-4xl font-semibold mb-4">
-					Personalized Guidance, Proven Results
-				</h2>
-				<p class="text-xl font-sans text-slate-700 mb-6">
-					Our approach is rooted in understanding your unique story
-					and aspirations. At Casa Serene, we don't just manage
-					money — we craft financial paths that reflect your values
-					and empower your future.
-				</p>
-				
-			</div>
-		</div>
-	</section>
-
-	<!-- Services Section -->
-	<section id="services" class="py-20 bg-white">
+	<!-- Latest Posts Section -->
+	<section class="py-20 bg-white">
 		<div class="container mx-auto px-6 max-w-6xl">
-			<h2 class="text-3xl font-semibold text-center mb-12 text-slate-900">
-				Our Core Services
+			<h2 class="text-4xl font-semibold mb-12 text-slate-800 text-center victoria-font"
+				style="font-family: 'Victoria', 'Times New Roman', serif;">
+				Latest Insights
 			</h2>
-			<div class="grid md:grid-cols-3 gap-8 mb-12">
-				<div class="bg-gray-100 p-6 rounded-2xl shadow-sm">
-					<h3 class="text-xl font-semibold text-slate-800 mb-4">
-						Wealth Management
-					</h3>
-					<p class="text-slate-700 font-sans text-lg">
-						Tailored portfolio strategies aligned with your
-						long-term goals and risk profile.
-					</p>
-				</div>
-				<div class="bg-gray-100 p-6 rounded-2xl shadow-sm">
-					<h3 class="text-xl font-semibold text-slate-800 mb-4">
-						Retirement Planning
-					</h3>
-					<p class="text-slate-700 font-sans text-lg">
-						Strategic retirement solutions to ensure you retire with
-						security and serenity.
-					</p>
-				</div>
-				<div class="bg-gray-100 p-6 rounded-2xl shadow-sm">
-					<h3 class="text-xl font-semibold text-slate-800 mb-4">
-						Estate & Legacy
-					</h3>
-					<p class="text-slate-700 font-sans text-lg">
-						Preserve your wealth and values across generations with
-						careful estate planning.
-					</p>
-				</div>
+			
+			<div class="grid md:grid-cols-1 gap-8 mb-12">
+				{recentPosts.map((post) => (
+					<div class="border-b border-gray-200 pb-8 last:border-b-0">
+						<div class="p-4 mx-auto">
+							<a href={`/blog/${post.slug}`} class="font-semibold">
+								<div class="flex flex-col gap-3">
+									<h2 class="text-3xl hover:text-slate-900 transition-colors duration-200"
+										style="hover:color: #9e383d;">
+										{post.title}
+									</h2>
+									<div class="flex flex-wrap gap-2 mb-2">
+										{post.tags.map((tag) => (
+											<span class="text-gray-700 px-3 py-1 rounded-full text-sm border-2"
+												  style="background-color: #f9f9f9; border-color: #d4af37; color: #7f1d1d;">
+												{tag}
+											</span>
+										))}
+									</div>
+									<p class="text-gray-500 border-t-1 border-b-1 border-gray-300 py-2 mb-2">
+										{new Date(post.date_created).toLocaleDateString("en-US", {
+											year: "numeric",
+											month: "long", 
+											day: "numeric",
+										})}
+									</p>
+									<div class="text-gray-700 text-xl leading-relaxed">
+										{post.short_body}
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				))}
 			</div>
+			
 			<div class="text-center">
 				<a
-					href="#contact"
-					class="font-sans inline-block bg-slate-800 text-white font-semibold px-6 py-3 rounded-lg hover:bg-slate-700 transition"
+					href="/archive"
+					class="inline-block text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+					style="background: linear-gradient(135deg, #9e383d, #7f1d1d);"
+					onmouseover="this.style.transform='translateY(-2px)'"
+					onmouseout="this.style.transform='translateY(0)'"
 				>
-					Request a Free Consultation
+					View All Posts
 				</a>
 			</div>
 		</div>
 	</section>
 
-	<!-- Testimonials Section -->
-	<section class="py-20 bg-gray-100">
-		<div class="container mx-auto px-6 max-w-5xl">
-			<h2 class="text-3xl font-semibold text-center text-slate-800 mb-12">
-				Client Reflections
+	<!-- About Teaser Section -->
+	<section class="py-20 bg-gray-50">
+		<div class="container mx-auto px-6 max-w-4xl text-center">
+			<h2 class="text-3xl font-semibold mb-6 text-slate-800 victoria-font"
+				style="font-family: 'Victoria', 'Times New Roman', serif;">
+				The Money-Printing Press
 			</h2>
-			<div class="grid md:grid-cols-2 gap-8 mb-12">
-				<div class="bg-white p-6 rounded-2xl shadow-md">
-					<p class="italic font-sans text-slate-700">
-						"Casa Serene gave me clarity and peace of mind with my
-						finances. Their attention to detail and elegance in
-						approach is unmatched.”
-					</p>
-					<p class="mt-4 font-semibold text-slate-800">
-						— Evelyn R., Retired Executive
+			<p class="text-xl text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+				A deep dive into the history of wealth, from the merchant princes of Venice 
+				to the tech titans of Silicon Valley. Understanding how fortunes are built, 
+				lost, and rebuilt across the centuries.
+			</p>
+			<a
+				href="/about"
+				class="inline-block border-2 text-slate-800 font-semibold px-8 py-3 rounded-lg transition-all duration-200 hover:shadow-lg"
+				style="border-color: #d4af37; color: #9e383d;"
+				onmouseover="this.style.backgroundColor='#d4af37'; this.style.color='white'; this.style.transform='translateY(-1px)'"
+				onmouseout="this.style.backgroundColor='transparent'; this.style.color='#9e383d'; this.style.transform='translateY(0)'"
+			>
+				Learn More About This Project
+			</a>
+		</div>
+	</section>
+
+	<!-- Featured Topics -->
+	<section class="py-20 bg-white">
+		<div class="container mx-auto px-6 max-w-6xl">
+			<h2 class="text-3xl font-semibold text-center mb-12 text-slate-800 victoria-font"
+				style="font-family: 'Victoria', 'Times New Roman', serif;">
+				Explore Topics
+			</h2>
+			<div class="grid md:grid-cols-3 gap-8">
+				<div class="bg-gray-50 p-8 rounded-2xl shadow-sm text-center hover:shadow-lg transition-all duration-200">
+					<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+						 style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
+						<span class="text-white text-2xl">🏛️</span>
+					</div>
+					<h3 class="text-xl font-semibold text-slate-800 mb-4 victoria-font"
+						style="font-family: 'Victoria', 'Times New Roman', serif;">
+						Historical Wealth
+					</h3>
+					<p class="text-slate-700 leading-relaxed">
+						Stories of ancient fortunes, from Roman merchants to Renaissance bankers.
 					</p>
 				</div>
-				<div class="bg-white p-6 rounded-2xl shadow-md">
-					<p class="italic font-sans text-slate-700">
-						“I felt seen and understood. Their bespoke solutions
-						respected my values and elevated my long-term financial
-						plan.”
+				<div class="bg-gray-50 p-8 rounded-2xl shadow-sm text-center hover:shadow-lg transition-all duration-200">
+					<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+						 style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
+						<span class="text-white text-2xl">📈</span>
+					</div>
+					<h3 class="text-xl font-semibold text-slate-800 mb-4 victoria-font"
+						style="font-family: 'Victoria', 'Times New Roman', serif;">
+						Modern Markets
+					</h3>
+					<p class="text-slate-700 leading-relaxed">
+						Analysis of contemporary wealth creation and financial innovation.
 					</p>
-					<p class="mt-4 font-semibold text-slate-800">
-						— Daniel M., Entrepreneur
+				</div>
+				<div class="bg-gray-50 p-8 rounded-2xl shadow-sm text-center hover:shadow-lg transition-all duration-200">
+					<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+						 style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
+						<span class="text-white text-2xl">💡</span>
+					</div>
+					<h3 class="text-xl font-semibold text-slate-800 mb-4 victoria-font"
+						style="font-family: 'Victoria', 'Times New Roman', serif;">
+						Timeless Principles
+					</h3>
+					<p class="text-slate-700 leading-relaxed">
+						The enduring strategies that have created wealth across all eras.
 					</p>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Call to Action -->
-	<section class="bg-slate-800 py-20">
+	<!-- Newsletter Signup -->
+	<section class="py-20" style="background: linear-gradient(135deg, #7f1d1d 0%, #9e383d 50%, #7f1d1d 100%);">
 		<div class="container mx-auto px-6 text-center">
-			<h2 class="text-3xl font-semibold text-white mb-4">
-				Ready to Elevate Your Financial Future?
+			<h2 class="text-3xl font-semibold text-white mb-4 victoria-font"
+				style="font-family: 'Victoria', 'Times New Roman', serif; color: #d4af37;">
+				Join the Press
 			</h2>
-			<p class="text-gray-300 mb-8">
-				Schedule a complimentary consultation and begin your serene
-				financial journey today.
+			<p class="text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
+				Get weekly insights on wealth, history, and the timeless principles 
+				of building lasting prosperity.
 			</p>
-			<a
-				href="#contact"
-				class="font-sans inline-block bg-white text-slate-900 font-semibold px-6 py-3 rounded-lg hover:bg-gray-300 transition"
-			>
-				Book a Consultation
-			</a>
+			<form class="flex flex-col sm:flex-row items-center gap-4 justify-center max-w-md mx-auto">
+				<input
+					type="email"
+					placeholder="your@email.com"
+					class="w-full px-4 py-3 rounded-lg text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 transition-all duration-200"
+					style="focus:ring-color: #d4af37;"
+				/>
+				<button
+					type="submit"
+					class="px-6 py-3 font-semibold rounded-lg transition-all duration-200 whitespace-nowrap hover:shadow-lg"
+					style="background-color: #d4af37; color: #9e383d;"
+					onmouseover="this.style.backgroundColor='#b8941f'; this.style.transform='translateY(-1px)'"
+					onmouseout="this.style.backgroundColor='#d4af37'; this.style.transform='translateY(0)'"
+				>
+					Subscribe
+				</button>
+			</form>
 		</div>
 	</section>
 </div>
+
+<style>
+	.victoria-font {
+		font-family: 'Victoria', 'Times New Roman', serif;
+	}
+</style>

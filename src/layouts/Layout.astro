@@ -11,13 +11,44 @@ const currentPath = Astro.url.pathname;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="/src/assets/casa-serene-favicon.png" />
+		<link rel="icon" type="image/png" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Casa Serene | Financial Service</title>
+		<title>The Money-Printing Press | Wealth Through the Ages</title>
 		<link rel="stylesheet" href="/src/styles/global.css" />
-	
+		
+		<!-- Google Fonts - Elegant serif alternatives -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+		
+		<style>
+			/* Set Times New Roman as default for all text */
+			body {
+				font-family: 'Times New Roman', serif;
+			}
+			
+			/* Victoria font alternative using Playfair Display (elegant, similar style) */
+			.victoria-font {
+				font-family: 'Playfair Display', 'Times New Roman', serif;
+			}
+			
+			/* Alternative option: Cormorant Garamond (more classic) */
+			.victoria-font-alt {
+				font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+			}
+			
+			/* Ensure font-sans class uses Times New Roman */
+			.font-sans {
+				font-family: 'Times New Roman', serif !important;
+			}
+			
+			/* Keep serif as Times New Roman */
+			.font-serif {
+				font-family: 'Times New Roman', serif !important;
+			}
+		</style>
 	</head>
-	<body class="min-h-screen justify-between flex flex-col">
+	<body class="min-h-screen justify-between flex flex-col" style="font-family: 'Times New Roman', serif;">
 		<Header currentPath={currentPath} />
 		<main class="bg-gray-100 flex-1 flex">
 			<slot />

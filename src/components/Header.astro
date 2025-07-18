@@ -6,51 +6,83 @@ const isActive = (href: string) => normalize(currentPath) === normalize(href);
 ---
 
 <div>
+	<!-- Logo Section -->
+	<div class="flex justify-center pt-6 pb-2">
+		<img 
+			src="/logo-printing-press.png" 
+			alt="The Money-Printing Press Logo" 
+			class="h-30 w-auto"
+		/>
+	</div>
+	
 	<a href="/">
-		<div class="flex items-end justify-center p-6">
+		<div class="flex items-end justify-center px-8 pb-2">
 			<h1
-				class="text-slate-900 text-center font-medium font-serif text-9xl"
+				class="text-slate-900 text-center font-medium text-7xl tracking-tighter victoria-font"
+				style="font-family: 'Playfair Display', 'Times New Roman', serif; font-weight: 500; letter-spacing: -0.02em;"
 			>
-				Casa Serena
+				The Money-Printing Press
 			</h1>
-			<h2
-				class="p-2 font-serif uppercase font-light text-4xl text-slate-700"
-			>
-				Financial<br />Services
+		</div>
+		<div class="text-center pb-4">
+			<h2 class="font-light text-xl text-slate-600 tracking-wide victoria-font" 
+				style="font-family: 'Playfair Display', 'Times New Roman', serif; font-weight: 400;">
+				Wealth through the ages, by Marcos Vega
 			</h2>
 		</div>
 	</a>
-	<div class="bg-slate-800">
-		<div class="w-full max-w-screen-xl mx-auto flex font-serif justify-end">
+	
+	<!-- Navigation with dark gradient selection -->
+	<div class="bg-gradient-to-r from-red-900 via-red-800 to-red-900" style="background: linear-gradient(135deg, #7f1d1d 0%, #9e383d 25%, #7f1d1d 50%, #9e383d 75%, #7f1d1d 100%);">
+		<div class="w-full max-w-screen-xl mx-auto flex justify-center py-2">
 			<a
 				href="/"
-				class={`text-2xl p-6 hover:bg-slate-900 ${isActive("/") ? "bg-slate-900 text-yellow-400 border-b-3 border-yellow-400" : "text-white"}`}
-				>Home</a
+				class={`text-2xl px-6 py-4 mx-1 rounded-lg transition-all duration-300 ease-in-out ${isActive("/") ? "nav-active" : "nav-inactive"}`}
+				style={isActive("/") ? "color: #d4af37; background: linear-gradient(135deg, #5a1a1a, #3d1010); box-shadow: inset 0 1px 3px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);" : "color: white;"}
 			>
+				Home
+			</a>
 
 			<a
-				href="/blog"
-				class={`text-2xl p-6 hover:bg-slate-900 ${isActive("/blog") ? "bg-slate-900 text-yellow-400 border-b-3 border-yellow-400" : "text-white"}`}
-				>Blog</a
+				href="/archive"
+				class={`text-2xl px-6 py-4 mx-1 rounded-lg transition-all duration-300 ease-in-out ${isActive("/archive") ? "nav-active" : "nav-inactive"}`}
+				style={isActive("/archive") ? "color: #d4af37; background: linear-gradient(135deg, #5a1a1a, #3d1010); box-shadow: inset 0 1px 3px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);" : "color: white;"}
 			>
+				Archive
+			</a>
 
 			<a
-				href="/calculators"
-				class={`text-2xl p-6 hover:bg-slate-900 ${isActive("/calculators") ? "bg-slate-900 text-yellow-400 border-b-3 border-yellow-400" : "text-white"}`}
-				>Calculators</a
+				href="/resources"
+				class={`text-2xl px-6 py-4 mx-1 rounded-lg transition-all duration-300 ease-in-out ${isActive("/resources") ? "nav-active" : "nav-inactive"}`}
+				style={isActive("/resources") ? "color: #d4af37; background: linear-gradient(135deg, #5a1a1a, #3d1010); box-shadow: inset 0 1px 3px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);" : "color: white;"}
 			>
-
-			<a
-				href="/work"
-				class={`text-2xl p-6 hover:bg-slate-900 ${isActive("/work") ? "bg-slate-900 text-yellow-400 border-b-3 border-yellow-400" : "text-white"}`}
-				>Work with Me</a
-			>
+				Resources
+			</a>
 
 			<a
 				href="/about"
-				class={`text-2xl p-6 hover:bg-slate-900 ${isActive("/about") ? "bg-slate-900 text-yellow-400 border-b-3 border-yellow-400" : "text-white"}`}
-				>About</a
+				class={`text-2xl px-6 py-4 mx-1 rounded-lg transition-all duration-300 ease-in-out ${isActive("/about") ? "nav-active" : "nav-inactive"}`}
+				style={isActive("/about") ? "color: #d4af37; background: linear-gradient(135deg, #5a1a1a, #3d1010); box-shadow: inset 0 1px 3px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);" : "color: white;"}
 			>
+				About
+			</a>
 		</div>
 	</div>
 </div>
+
+<style>
+	.victoria-font {
+		font-family: 'Playfair Display', 'Times New Roman', serif;
+	}
+	
+	/* Smooth hover effects */
+	.nav-inactive:hover {
+		background: rgba(255, 255, 255, 0.08) !important;
+		transform: translateY(-1px);
+	}
+	
+	.nav-active:hover {
+		transform: translateY(-1px);
+		box-shadow: inset 0 1px 3px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.2) !important;
+	}
+</style>
