@@ -6,39 +6,24 @@ const isActive = (href: string) => normalize(currentPath) === normalize(href);
 ---
 
 <div>
-	<!-- Logo Section -->
-	<div class="flex justify-center pt-6 pb-2">
-		<img 
-			src="/logo-printing-press.png" 
-			alt="The Money-Printing Press Logo" 
-			class="h-30 w-auto"
-		/>
-	</div>
-	
+	<!-- Banner Logo as Header -->
 	<a href="/">
-		<div class="flex items-end justify-center px-8 pb-2">
-			<h1
-				class="text-slate-900 text-center font-medium text-7xl tracking-tighter victoria-font"
-				style="font-family: 'Playfair Display', 'Times New Roman', serif; font-weight: 500; letter-spacing: -0.02em;"
-			>
-				The Money-Printing Press
-			</h1>
-		</div>
-		<div class="text-center pb-4">
-			<h2 class="font-light text-xl text-slate-600 tracking-wide victoria-font" 
-				style="font-family: 'Playfair Display', 'Times New Roman', serif; font-weight: 400;">
-				Wealth through the ages, by Marcos Vega
-			</h2>
+		<div class="flex justify-center pt-6 pb-4">
+			<img 
+				src="/logo-printing-press.svg" 
+				alt="The Money-Printing Press - Wealth through the ages, by Marcos Vega" 
+				class="w-full max-w-4xl h-auto"
+			/>
 		</div>
 	</a>
 	
-	<!-- Navigation with dark gradient selection -->
-	<div class="bg-gradient-to-r from-red-900 via-red-800 to-red-900" style="background: linear-gradient(135deg, #7f1d1d 0%, #9e383d 25%, #7f1d1d 50%, #9e383d 75%, #7f1d1d 100%);">
+	<!-- Navigation with updated color scheme -->
+	<div style="background: linear-gradient(135deg, #9C272E 0%, #B83339 25%, #9C272E 50%, #B83339 75%, #9C272E 100%);">
 		<div class="w-full max-w-screen-xl mx-auto flex justify-center py-2">
 			<a
 				href="/"
 				class={`text-2xl px-6 py-4 mx-1 rounded-lg transition-all duration-300 ease-in-out ${isActive("/") ? "nav-active" : "nav-inactive"}`}
-				style={isActive("/") ? "color: #d4af37; background: linear-gradient(135deg, #5a1a1a, #3d1010); box-shadow: inset 0 1px 3px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);" : "color: white;"}
+				style={isActive("/") ? "color: #d4af37; background: linear-gradient(135deg, #7a1f24, #5c1518); box-shadow: inset 0 1px 3px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);" : "color: white;"}
 			>
 				Home
 			</a>
@@ -46,7 +31,7 @@ const isActive = (href: string) => normalize(currentPath) === normalize(href);
 			<a
 				href="/archive"
 				class={`text-2xl px-6 py-4 mx-1 rounded-lg transition-all duration-300 ease-in-out ${isActive("/archive") ? "nav-active" : "nav-inactive"}`}
-				style={isActive("/archive") ? "color: #d4af37; background: linear-gradient(135deg, #5a1a1a, #3d1010); box-shadow: inset 0 1px 3px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);" : "color: white;"}
+				style={isActive("/archive") ? "color: #d4af37; background: linear-gradient(135deg, #7a1f24, #5c1518); box-shadow: inset 0 1px 3px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);" : "color: white;"}
 			>
 				Archive
 			</a>
@@ -54,7 +39,7 @@ const isActive = (href: string) => normalize(currentPath) === normalize(href);
 			<a
 				href="/resources"
 				class={`text-2xl px-6 py-4 mx-1 rounded-lg transition-all duration-300 ease-in-out ${isActive("/resources") ? "nav-active" : "nav-inactive"}`}
-				style={isActive("/resources") ? "color: #d4af37; background: linear-gradient(135deg, #5a1a1a, #3d1010); box-shadow: inset 0 1px 3px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);" : "color: white;"}
+				style={isActive("/resources") ? "color: #d4af37; background: linear-gradient(135deg, #7a1f24, #5c1518); box-shadow: inset 0 1px 3px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);" : "color: white;"}
 			>
 				Resources
 			</a>
@@ -62,7 +47,7 @@ const isActive = (href: string) => normalize(currentPath) === normalize(href);
 			<a
 				href="/about"
 				class={`text-2xl px-6 py-4 mx-1 rounded-lg transition-all duration-300 ease-in-out ${isActive("/about") ? "nav-active" : "nav-inactive"}`}
-				style={isActive("/about") ? "color: #d4af37; background: linear-gradient(135deg, #5a1a1a, #3d1010); box-shadow: inset 0 1px 3px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);" : "color: white;"}
+				style={isActive("/about") ? "color: #d4af37; background: linear-gradient(135deg, #7a1f24, #5c1518); box-shadow: inset 0 1px 3px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);" : "color: white;"}
 			>
 				About
 			</a>

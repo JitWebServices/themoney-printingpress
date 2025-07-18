@@ -11,7 +11,11 @@ const currentPath = Astro.url.pathname;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="/favicon.svg" />
+		<!-- SVG favicon with fallbacks and cache busting -->
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		
 		<meta name="generator" content={Astro.generator} />
 		<title>The Money-Printing Press | Wealth Through the Ages</title>
 		<link rel="stylesheet" href="/src/styles/global.css" />
