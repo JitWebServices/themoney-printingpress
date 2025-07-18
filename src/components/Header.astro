@@ -1,0 +1,56 @@
+---
+const { currentPath } = Astro.props;
+
+const normalize = (path: string) => path.replace(/\/$/, "") || "/";
+const isActive = (href: string) => normalize(currentPath) === normalize(href);
+---
+
+<div>
+	<a href="/">
+		<div class="flex items-end justify-center p-6">
+			<h1
+				class="text-slate-900 text-center font-medium font-serif text-9xl"
+			>
+				Casa Serena
+			</h1>
+			<h2
+				class="p-2 font-serif uppercase font-light text-4xl text-slate-700"
+			>
+				Financial<br />Services
+			</h2>
+		</div>
+	</a>
+	<div class="bg-slate-800">
+		<div class="w-full max-w-screen-xl mx-auto flex font-serif justify-end">
+			<a
+				href="/"
+				class={`text-2xl p-6 hover:bg-slate-900 ${isActive("/") ? "bg-slate-900 text-yellow-400 border-b-3 border-yellow-400" : "text-white"}`}
+				>Home</a
+			>
+
+			<a
+				href="/blog"
+				class={`text-2xl p-6 hover:bg-slate-900 ${isActive("/blog") ? "bg-slate-900 text-yellow-400 border-b-3 border-yellow-400" : "text-white"}`}
+				>Blog</a
+			>
+
+			<a
+				href="/calculators"
+				class={`text-2xl p-6 hover:bg-slate-900 ${isActive("/calculators") ? "bg-slate-900 text-yellow-400 border-b-3 border-yellow-400" : "text-white"}`}
+				>Calculators</a
+			>
+
+			<a
+				href="/work"
+				class={`text-2xl p-6 hover:bg-slate-900 ${isActive("/work") ? "bg-slate-900 text-yellow-400 border-b-3 border-yellow-400" : "text-white"}`}
+				>Work with Me</a
+			>
+
+			<a
+				href="/about"
+				class={`text-2xl p-6 hover:bg-slate-900 ${isActive("/about") ? "bg-slate-900 text-yellow-400 border-b-3 border-yellow-400" : "text-white"}`}
+				>About</a
+			>
+		</div>
+	</div>
+</div>

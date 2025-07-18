@@ -1,0 +1,428 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout>
+	<div class="max-w-screen-xl bg-gray-100 shadow-2xl mx-auto flex-1 font-serif text-slate-900">
+		
+		<!-- Header Section -->
+		<section class="bg-slate-800 text-white py-16">
+			<div class="container mx-auto px-6 text-center">
+				<h1 class="text-4xl md:text-5xl font-semibold mb-4">
+					Retirement Calculator
+				</h1>
+				<p class="text-lg md:text-xl max-w-2xl mx-auto font-sans">
+					Plan your retirement savings strategy with our comprehensive calculator. 
+					Determine how much you need to save to achieve your retirement income goals.
+				</p>
+			</div>
+		</section>
+
+		<!-- Calculator Section -->
+		<section class="py-12 bg-white">
+			<div class="container mx-auto px-6">
+				<div class="max-w-4xl mx-auto p-6 bg-white rounded-2xl shadow-lg">
+					<h2 class="text-3xl font-bold text-slate-800 mb-6 text-center">
+						Retirement Calculator
+					</h2>
+					
+					<div class="grid md:grid-cols-2 gap-8">
+						<!-- Input Form -->
+						<div class="space-y-6">
+							<div>
+								<label class="block text-slate-700 font-medium mb-2">
+									Desired Annual Income in Retirement
+								</label>
+								<div class="relative">
+									<span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-500">$</span>
+									<input
+										type="number"
+										id="yearlyIncome"
+										class="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-600"
+										placeholder="100,000"
+									/>
+								</div>
+							</div>
+
+							<div>
+								<label class="block text-slate-700 font-medium mb-2">
+									Years Until Retirement
+								</label>
+								<input
+									type="number"
+									id="yearsToRetirement"
+									class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-600"
+									placeholder="30"
+								/>
+							</div>
+
+							<div>
+								<label class="block text-slate-700 font-medium mb-2">
+									Expected Annual Return (%)
+								</label>
+								<input
+									type="number"
+									step="0.1"
+									id="annualReturn"
+									class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-600"
+									placeholder="7.0"
+								/>
+							</div>
+
+							<div>
+								<label class="block text-slate-700 font-medium mb-2">
+									Consumption Rate (Safe Withdrawal Rate)
+								</label>
+								<div class="grid grid-cols-2 gap-2">
+									<label class="flex items-center">
+										<input
+											type="radio"
+											name="consumptionRate"
+											value="1"
+											class="mr-2"
+										/>
+										1% (Conservative)
+									</label>
+									<label class="flex items-center">
+										<input
+											type="radio"
+											name="consumptionRate"
+											value="3"
+											class="mr-2"
+										/>
+										3% (Moderate)
+									</label>
+									<label class="flex items-center">
+										<input
+											type="radio"
+											name="consumptionRate"
+											value="4"
+											checked
+											class="mr-2"
+										/>
+										4% (Standard)
+									</label>
+									<label class="flex items-center">
+										<input
+											type="radio"
+											name="consumptionRate"
+											value="5"
+											class="mr-2"
+										/>
+										5% (Aggressive)
+									</label>
+								</div>
+								<label class="flex items-center mt-2">
+									<input
+										type="radio"
+										name="consumptionRate"
+										value="custom"
+										class="mr-2"
+									/>
+									Custom:
+									<input
+										type="number"
+										step="0.1"
+										id="customRate"
+										disabled
+										class="ml-2 w-20 px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-slate-600 disabled:bg-gray-100"
+										placeholder="4.0"
+									/>
+									<span class="ml-1">%</span>
+								</label>
+							</div>
+
+							<button
+								id="calculateBtn"
+								class="w-full bg-slate-800 text-white font-semibold py-3 px-6 rounded-lg hover:bg-slate-700 transition duration-200"
+							>
+								Calculate Retirement Needs
+							</button>
+						</div>
+
+						<!-- Results -->
+						<div class="bg-gray-50 p-6 rounded-xl">
+							<h3 class="text-xl font-semibold text-slate-800 mb-4">
+								Your Retirement Plan
+							</h3>
+							
+							<div id="results" class="hidden">
+								<div class="space-y-4">
+									<div class="bg-white p-4 rounded-lg shadow-sm">
+										<h4 class="font-semibold text-slate-800 mb-2">Target Retirement Corpus</h4>
+										<p id="targetCorpus" class="text-2xl font-bold text-slate-900"></p>
+										<p id="withdrawalRateText" class="text-sm text-slate-600"></p>
+									</div>
+									
+									<div class="bg-white p-4 rounded-lg shadow-sm">
+										<h4 class="font-semibold text-slate-800 mb-2">Monthly Savings Required</h4>
+										<p id="monthlyPayment" class="text-2xl font-bold text-slate-900"></p>
+										<p id="annualSavings" class="text-sm text-slate-600"></p>
+									</div>
+									
+									<div class="bg-white p-4 rounded-lg shadow-sm">
+										<h4 class="font-semibold text-slate-800 mb-2">Savings Rate</h4>
+										<p id="savingsPercentage" class="text-2xl font-bold text-slate-900"></p>
+										<p class="text-sm text-slate-600">of your desired retirement income</p>
+									</div>
+									
+									<div class="bg-white p-4 rounded-lg shadow-sm">
+										<h4 class="font-semibold text-slate-800 mb-2">Breakdown</h4>
+										<div class="space-y-1 text-sm">
+											<div class="flex justify-between">
+												<span>Total Contributions:</span>
+												<span id="totalContributions"></span>
+											</div>
+											<div class="flex justify-between">
+												<span>Interest Earned:</span>
+												<span id="interestEarned"></span>
+											</div>
+											<div class="flex justify-between font-semibold border-t pt-1">
+												<span>Total Corpus:</span>
+												<span id="totalCorpus"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div id="placeholder" class="text-slate-600 text-center py-8">
+								Enter your retirement goals above to see your personalized savings plan.
+							</div>
+						</div>
+					</div>
+					
+					<!-- Information Section -->
+					<div class="mt-8 bg-blue-50 p-6 rounded-xl">
+						<h3 class="text-lg font-semibold text-slate-800 mb-3">
+							Understanding Safe Withdrawal Rates
+						</h3>
+						<div class="grid md:grid-cols-2 gap-4 text-sm text-slate-600">
+							<div>
+								<p class="mb-2">
+									<strong>1% (Conservative):</strong> Very safe for long retirement periods, preserves wealth for heirs.
+								</p>
+								<p>
+									<strong>3% (Moderate):</strong> Conservative approach with good wealth preservation.
+								</p>
+							</div>
+							<div>
+								<p class="mb-2">
+									<strong>4% (Standard):</strong> The traditional "4% rule" - historically safe for 30-year retirements.
+								</p>
+								<p>
+									<strong>5% (Aggressive):</strong> Higher risk of running out of money, but requires less savings.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- How It Works Section -->
+		<section class="py-16 bg-gray-50">
+			<div class="container mx-auto px-6 max-w-4xl">
+				<h2 class="text-3xl font-semibold text-center mb-8 text-slate-800">
+					How This Calculator Works
+				</h2>
+				
+				<div class="grid md:grid-cols-2 gap-8">
+					<div class="bg-white p-6 rounded-xl shadow-md">
+						<h3 class="text-xl font-semibold text-slate-800 mb-4">The Math Behind It</h3>
+						<p class="text-slate-600 font-sans mb-4">
+							This calculator uses the safe withdrawal rate principle to determine your retirement corpus. 
+							It then calculates the monthly savings needed using the future value of annuity formula.
+						</p>
+						<ul class="text-sm text-slate-600 font-sans space-y-1">
+							<li>• Target Corpus = Annual Income ÷ Withdrawal Rate</li>
+							<li>• Monthly Savings = Target ÷ Future Value Factor</li>
+							<li>• Accounts for compound growth over time</li>
+						</ul>
+					</div>
+					
+					<div class="bg-white p-6 rounded-xl shadow-md">
+						<h3 class="text-xl font-semibold text-slate-800 mb-4">Key Assumptions</h3>
+						<ul class="text-slate-600 font-sans space-y-2">
+							<li>• <strong>Inflation:</strong> Not directly factored in - use real returns</li>
+							<li>• <strong>Taxes:</strong> Consider using after-tax income figures</li>
+							<li>• <strong>Market volatility:</strong> Assumes average returns</li>
+							<li>• <strong>Longevity:</strong> 4% rule designed for 30-year retirement</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Tips Section -->
+		<section class="py-16 bg-white">
+			<div class="container mx-auto px-6 max-w-4xl">
+				<h2 class="text-3xl font-semibold text-center mb-8 text-slate-800">
+					Tips for Retirement Planning
+				</h2>
+				
+				<div class="grid md:grid-cols-3 gap-6">
+					<div class="text-center p-6">
+						<div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4">
+							<span class="text-white text-2xl">📅</span>
+						</div>
+						<h3 class="text-lg font-semibold text-slate-800 mb-2">Start Early</h3>
+						<p class="text-slate-600 font-sans text-sm">
+							The power of compound interest works best with time. Even small amounts saved early make a big difference.
+						</p>
+					</div>
+					
+					<div class="text-center p-6">
+						<div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4">
+							<span class="text-white text-2xl">🔄</span>
+						</div>
+						<h3 class="text-lg font-semibold text-slate-800 mb-2">Regular Reviews</h3>
+						<p class="text-slate-600 font-sans text-sm">
+							Review and adjust your retirement plan regularly as your income, goals, and market conditions change.
+						</p>
+					</div>
+					
+					<div class="text-center p-6">
+						<div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4">
+							<span class="text-white text-2xl">🎯</span>
+						</div>
+						<h3 class="text-lg font-semibold text-slate-800 mb-2">Multiple Sources</h3>
+						<p class="text-slate-600 font-sans text-sm">
+							Don't rely solely on one retirement account. Consider 401(k), IRA, and taxable investments.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Call to Action -->
+		<section class="py-16 bg-slate-800 text-white">
+			<div class="container mx-auto px-6 text-center">
+				<h2 class="text-3xl font-semibold mb-4">
+					Ready to Create Your Retirement Plan?
+				</h2>
+				<p class="text-gray-300 font-sans mb-8 max-w-2xl mx-auto">
+					This calculator gives you a great starting point, but every situation is unique. 
+					Let's work together to create a comprehensive retirement strategy tailored to your specific needs.
+				</p>
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<a
+						href="/work"
+						class="font-sans inline-block bg-white text-slate-800 font-semibold px-8 py-3 rounded-lg hover:bg-gray-200 transition"
+					>
+						Schedule a Consultation
+					</a>
+					<a
+						href="/calculators"
+						class="font-sans inline-block border-2 border-white text-white font-semibold px-8 py-3 rounded-lg hover:bg-white hover:text-slate-800 transition"
+					>
+						Other Calculators
+					</a>
+				</div>
+			</div>
+		</section>
+	</div>
+</Layout>
+
+<script>
+	function formatCurrency(amount) {
+		return new Intl.NumberFormat('en-US', {
+			style: 'currency',
+			currency: 'USD',
+			minimumFractionDigits: 0,
+			maximumFractionDigits: 0
+		}).format(amount);
+	}
+
+	function formatPercent(percent) {
+		return `${percent.toFixed(2)}%`;
+	}
+
+	function calculateRetirement() {
+		const yearlyIncome = parseFloat(document.getElementById('yearlyIncome').value);
+		const yearsToRetirement = parseInt(document.getElementById('yearsToRetirement').value);
+		const annualReturn = parseFloat(document.getElementById('annualReturn').value) / 100;
+		
+		// Get consumption rate
+		const consumptionRateRadios = document.querySelectorAll('input[name="consumptionRate"]');
+		let consumptionRate = 0.04; // default 4%
+		
+		for (let radio of consumptionRateRadios) {
+			if (radio.checked) {
+				if (radio.value === 'custom') {
+					const customRate = parseFloat(document.getElementById('customRate').value);
+					consumptionRate = customRate / 100;
+				} else {
+					consumptionRate = parseFloat(radio.value) / 100;
+				}
+				break;
+			}
+		}
+
+		// Validation
+		if (!yearlyIncome || !yearsToRetirement || !annualReturn || !consumptionRate) {
+			alert('Please fill in all fields with valid numbers');
+			return;
+		}
+
+		// Calculate target retirement corpus (income / withdrawal rate)
+		const targetCorpus = yearlyIncome / consumptionRate;
+		
+		// Calculate required monthly savings using future value of annuity formula
+		const monthlyReturn = annualReturn / 12;
+		const totalMonths = yearsToRetirement * 12;
+		
+		// Future value of annuity formula: FV = PMT * (((1 + r)^n - 1) / r)
+		// Solving for PMT: PMT = FV / (((1 + r)^n - 1) / r)
+		const monthlyPayment = targetCorpus / (((Math.pow(1 + monthlyReturn, totalMonths) - 1) / monthlyReturn));
+		
+		// Calculate annual savings
+		const annualSavings = monthlyPayment * 12;
+		
+		// Calculate percentage of income to save
+		const savingsPercentage = (annualSavings / yearlyIncome) * 100;
+		
+		// Calculate totals
+		const totalContributions = annualSavings * yearsToRetirement;
+		const interestEarned = targetCorpus - totalContributions;
+
+		// Update UI
+		document.getElementById('targetCorpus').textContent = formatCurrency(targetCorpus);
+		document.getElementById('withdrawalRateText').textContent = `Based on ${formatPercent(consumptionRate * 100)} withdrawal rate`;
+		document.getElementById('monthlyPayment').textContent = formatCurrency(monthlyPayment);
+		document.getElementById('annualSavings').textContent = `${formatCurrency(annualSavings)} annually`;
+		document.getElementById('savingsPercentage').textContent = formatPercent(savingsPercentage);
+		document.getElementById('totalContributions').textContent = formatCurrency(totalContributions);
+		document.getElementById('interestEarned').textContent = formatCurrency(interestEarned);
+		document.getElementById('totalCorpus').textContent = formatCurrency(targetCorpus);
+
+		// Show results
+		document.getElementById('results').classList.remove('hidden');
+		document.getElementById('placeholder').classList.add('hidden');
+	}
+
+	// Event listeners
+	document.getElementById('calculateBtn').addEventListener('click', calculateRetirement);
+
+	// Handle custom rate radio button
+	document.querySelectorAll('input[name="consumptionRate"]').forEach(radio => {
+		radio.addEventListener('change', function() {
+			const customRateInput = document.getElementById('customRate');
+			if (this.value === 'custom') {
+				customRateInput.disabled = false;
+				customRateInput.focus();
+			} else {
+				customRateInput.disabled = true;
+			}
+		});
+	});
+
+	// Calculate on Enter key
+	document.querySelectorAll('input[type="number"]').forEach(input => {
+		input.addEventListener('keypress', function(e) {
+			if (e.key === 'Enter') {
+				calculateRetirement();
+			}
+		});
+	});
+</script>

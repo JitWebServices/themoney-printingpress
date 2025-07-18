@@ -1,0 +1,36 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import directus from "../../../lib/directus";
+import { readItems } from "@directus/sdk";
+import PostCard from "../../components/PostCard.astro";
+
+const posts = await directus.request(
+    readItems("posts", {
+        fields: [
+            "slug",
+            "title",
+            "date_created",
+            "user_created",
+            "status",
+            "body",
+            "tags",
+            "site",
+            "short_body",
+        ],
+        sort: ["-date_created"],
+        filter: {
+            site: {
+                _eq: "marcos_vega",
+            },
+        },
+    }),
+);
+---
+
+<Layout title="Blog">
+    <div
+        class="max-w-screen-xl bg-gray-100 shadow-2xl mx-auto p-10 flex flex-col gap-6 flex-1"
+    >
+        {posts.map((post) => <PostCard post={post} />)}
+    </div>
+</Layout>

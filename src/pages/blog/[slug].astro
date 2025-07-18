@@ -1,0 +1,42 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import directus from "../../../lib/directus";
+import { readItems } from "@directus/sdk";
+import PostPage from "../../components/PostPage.astro";
+
+const { slug } = Astro.params;
+
+const posts = await directus.request(
+    readItems("posts", {
+        filter: {
+            slug: { _eq: slug },
+            site: { _eq: "marcos_vega" },
+        },
+        limit: 1,
+    }),
+);
+
+const post = posts[0] || null;
+
+export async function getStaticPaths() {
+    const allPosts = await directus.request(
+        readItems("posts", {
+            fields: ["slug"],
+            filter: {
+                site: {
+                    _eq: "marcos_vega",
+                },
+            },
+        }),
+    );
+    console.log(allPosts);
+
+    return allPosts.map((post) => ({
+        params: { slug: post.slug },
+    }));
+}
+---
+
+<Layout>
+    <PostPage post={post} />
+</Layout>

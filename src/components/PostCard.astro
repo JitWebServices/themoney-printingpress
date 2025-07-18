@@ -1,0 +1,44 @@
+---
+import { type Post } from "../../lib/directus";
+export interface Props {
+	post: Post;
+}
+
+const { post } = Astro.props;
+
+const date = new Date(post.date_created).toLocaleDateString("en-US", {
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+});
+
+console.log(post.tags);
+---
+
+<div class="p-4 mx-auto">
+	<a href={`/blog/${post.slug}`} class="font-serif font-semibold">
+		<div class="flex flex-col gap-3">
+			<h2 class="text-3xl hover:text-slate-900">
+				{post.title}
+			</h2>
+			<div class="flex flex-wrap gap-2 mb-2">
+				{
+					post.tags.map((tag) => (
+						<span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm">
+							{tag}
+						</span>
+					))
+				}
+			</div>
+			<p
+				class="font-sans text-gray-500 border-t-1 border-b-1 border-gray-300 py-2 mb-2"
+			>
+				{date}
+			</p>
+			<div
+				class="font-sans text-gray-700 text-xl"
+				set:html={post.short_body}
+			/>
+		</div>
+	</a>
+</div>
