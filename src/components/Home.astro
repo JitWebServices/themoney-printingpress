@@ -25,32 +25,39 @@ const recentPosts = [
 ];
 ---
 
-<div class="max-w-screen-xl bg-gray-100 shadow-2xl mx-auto flex-1 text-slate-900">
+<div class="max-w-screen-xl shadow-2xl mx-auto flex-1 text-slate-900" style="background-color: #f6f2ea;">
 	
 	<!-- Hero Section -->
-	<section class="relative" style="background: linear-gradient(135deg, #7f1d1d 0%, #9e383d 50%, #7f1d1d 100%);">
+	<section class="relative h-[420px] overflow-hidden">
 		<img
-			src="https://images.pexels.com/photos/6802049/pexels-photo-6802049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-			alt="Historical wealth and money imagery"
-			class="w-full h-[500px] object-cover opacity-30"
+		  src="/images/hero-map.jpg"
+		  alt="Early world map symbolizing historical trade and wealth"
+		  class="absolute inset-0 w-full h-full object-cover opacity-90"
+		  style="filter: contrast(1.05) brightness(0.92);"
+		  loading="lazy"
+		  decoding="async"
 		/>
-		<div class="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-white">
-			<h1 class="text-4xl md:text-5xl font-light mb-6 victoria-font" 
-				style="font-family: 'Victoria', 'Times New Roman', serif; color: #d4af37;">
-				Exploring Wealth Through History
-			</h1>
-			<p class="text-lg md:text-xl max-w-3xl leading-relaxed">
-				From ancient trade routes to modern financial markets, discover the timeless principles 
-				of wealth creation and the stories behind the world's greatest fortunes.
-			</p>
+		<div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(111,27,29,0.68),rgba(111,27,29,0.38)),radial-gradient(ellipse_at_50%_42%,rgba(176,138,48,0.18),transparent_60%)]"></div>
+	  
+		<div class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
+		  <h1 class="font-serif tracking-tight text-4xl md:text-6xl mb-5 text-[#FBF9F4] drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
+			Exploring Wealth Through History
+		  </h1>
+		  <div class="w-20 h-[3px] bg-[#B08A30] mb-6"></div>
+		  <p class="max-w-3xl font-sans text-lg md:text-xl leading-relaxed text-[rgba(246,242,234,0.95)] tracking-wide">
+			From ancient trade routes to modern financial markets, discover the timeless principles
+			of wealth creation and the stories behind the world's greatest fortunes.
+		  </p>
 		</div>
-	</section>
+	  
+		<div class="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-b from-[rgba(0,0,0,0.28)] to-transparent pointer-events-none"></div>
+	  </section>
 
 	<!-- Latest Posts Section -->
-	<section class="py-20 bg-white">
+	<section class="py-20" style="background-color: #FBF9F4;">
 		<div class="container mx-auto px-6 max-w-6xl">
-			<h2 class="text-4xl font-semibold mb-12 text-slate-800 text-center victoria-font"
-				style="font-family: 'Victoria', 'Times New Roman', serif;">
+			<h2 class="text-4xl font-semibold mb-12 text-center victoria-font"
+				style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
 				Latest Insights
 			</h2>
 			
@@ -104,10 +111,10 @@ const recentPosts = [
 	</section>
 
 	<!-- About Teaser Section -->
-	<section class="py-20 bg-gray-50">
+	<section class="py-20" style="background-color: #f6f2ea;">
 		<div class="container mx-auto px-6 max-w-4xl text-center">
-			<h2 class="text-3xl font-semibold mb-6 text-slate-800 victoria-font"
-				style="font-family: 'Victoria', 'Times New Roman', serif;">
+			<h2 class="text-3xl font-semibold mb-6 victoria-font"
+				style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
 				The Money-Printing Press
 			</h2>
 			<p class="text-xl text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed">
@@ -128,46 +135,46 @@ const recentPosts = [
 	</section>
 
 	<!-- Featured Topics -->
-	<section class="py-20 bg-white">
+	<section class="py-20" style="background-color: #FBF9F4;">
 		<div class="container mx-auto px-6 max-w-6xl">
-			<h2 class="text-3xl font-semibold text-center mb-12 text-slate-800 victoria-font"
-				style="font-family: 'Victoria', 'Times New Roman', serif;">
+			<h2 class="text-3xl font-semibold text-center mb-12 victoria-font"
+				style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
 				Explore Topics
 			</h2>
 			<div class="grid md:grid-cols-3 gap-8">
-				<div class="bg-gray-50 p-8 rounded-2xl shadow-sm text-center hover:shadow-lg transition-all duration-200">
+				<div class="p-8 rounded-2xl shadow-sm text-center hover:shadow-lg transition-all duration-200" style="background-color: #f6f2ea;">
 					<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
 						 style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
 						<span class="text-white text-2xl">🏛️</span>
 					</div>
-					<h3 class="text-xl font-semibold text-slate-800 mb-4 victoria-font"
-						style="font-family: 'Victoria', 'Times New Roman', serif;">
+					<h3 class="text-xl font-semibold mb-4 victoria-font"
+						style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
 						Historical Wealth
 					</h3>
 					<p class="text-slate-700 leading-relaxed">
 						Stories of ancient fortunes, from Roman merchants to Renaissance bankers.
 					</p>
 				</div>
-				<div class="bg-gray-50 p-8 rounded-2xl shadow-sm text-center hover:shadow-lg transition-all duration-200">
+				<div class="p-8 rounded-2xl shadow-sm text-center hover:shadow-lg transition-all duration-200" style="background-color: #f6f2ea;">
 					<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
 						 style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
 						<span class="text-white text-2xl">📈</span>
 					</div>
-					<h3 class="text-xl font-semibold text-slate-800 mb-4 victoria-font"
-						style="font-family: 'Victoria', 'Times New Roman', serif;">
+					<h3 class="text-xl font-semibold mb-4 victoria-font"
+						style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
 						Modern Markets
 					</h3>
 					<p class="text-slate-700 leading-relaxed">
 						Analysis of contemporary wealth creation and financial innovation.
 					</p>
 				</div>
-				<div class="bg-gray-50 p-8 rounded-2xl shadow-sm text-center hover:shadow-lg transition-all duration-200">
+				<div class="p-8 rounded-2xl shadow-sm text-center hover:shadow-lg transition-all duration-200" style="background-color: #f6f2ea;">
 					<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
 						 style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
 						<span class="text-white text-2xl">💡</span>
 					</div>
-					<h3 class="text-xl font-semibold text-slate-800 mb-4 victoria-font"
-						style="font-family: 'Victoria', 'Times New Roman', serif;">
+					<h3 class="text-xl font-semibold mb-4 victoria-font"
+						style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
 						Timeless Principles
 					</h3>
 					<p class="text-slate-700 leading-relaxed">
@@ -213,5 +220,20 @@ const recentPosts = [
 <style>
 	.victoria-font {
 		font-family: 'Victoria', 'Times New Roman', serif;
+	}
+	
+	.hero-section {
+		position: relative;
+	}
+	
+	.hero-overlay {
+		background: 
+			linear-gradient(rgba(122,49,50,0.55), rgba(122,49,50,0.35)),
+			radial-gradient(ellipse at 50% 40%, rgba(176,138,48,0.18), transparent 60%);
+	}
+	
+	.hero-separator {
+		height: 8px;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.18), transparent);
 	}
 </style>

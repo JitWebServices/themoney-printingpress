@@ -28,23 +28,38 @@ const posts = [
 ---
 
 <Layout>
-    <div class="max-w-screen-xl bg-gray-100 shadow-2xl mx-auto flex-1 font-serif text-slate-900">
+    <div class="max-w-screen-xl shadow-2xl mx-auto flex-1 font-serif text-slate-900" style="background-color: #f6f2ea;">
         
         <!-- Header Section -->
-        <section class="py-16" style="background-color: #9e383d;">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-5xl font-light text-white mb-4"
-                    style="font-family: 'Inter', 'Futura', 'Helvetica Neue', Arial, sans-serif;">
-                    Archive
-                </h1>
-                <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-200 font-sans">
-                    A complete collection of insights on wealth, history, and the timeless principles of prosperity.
-                </p>
-            </div>
-        </section>
+        <section class="relative hero">
+			<img
+			  src="https://images.unsplash.com/photo-1519452634265-7b1fbfd1aa1e?auto=format&fit=crop&w=2069&q=80"
+			  alt="Ancient manuscript and historical documents"
+			  class="absolute inset-0 w-full h-full object-cover hero-img"
+			/>
+		  
+			<!-- Overlay layer -->
+			<div class="absolute inset-0 hero-overlay pointer-events-none"></div>
+		  
+			<!-- Content -->
+			<div class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
+			  <h1 class="font-serif font-light tracking-tight text-4xl md:text-5xl text-[#FBF9F4] mb-6 drop-shadow-[0_2px_3px_rgba(0,0,0,0.45)]">
+				Archive
+			  </h1>
+			  <!-- Brass underline accent -->
+			  <div class="w-16 h-[3px] bg-[#B08A30] mb-6"></div>
+			  <p class="max-w-2xl font-sans text-base md:text-xl leading-relaxed text-[rgba(246,242,234,0.95)] tracking-wide">
+				A complete collection of insights on wealth, history, and the timeless principles of prosperity.
+			  </p>
+			</div>
+		  
+			<!-- Bottom fade separator -->
+			<div class="absolute bottom-0 left-0 w-full h-8 pointer-events-none bg-gradient-to-b from-[rgba(0,0,0,0.25)] to-transparent"></div>
+		  </section>
+		  
 
         <!-- Posts Grid -->
-        <section class="py-12 bg-white">
+        <section class="py-12" style="background-color: #FBF9F4;">
             <div class="container mx-auto px-6 max-w-4xl">
                 <div class="space-y-8">
                     {posts.length > 0 ? (
@@ -53,12 +68,13 @@ const posts = [
                                 <div class="p-4 mx-auto">
                                     <a href={`/blog/${post.slug}`} class="font-serif font-semibold">
                                         <div class="flex flex-col gap-3">
-                                            <h2 class="text-3xl hover:text-slate-900">
+                                            <h2 class="text-3xl hover:text-slate-900 transition-colors duration-200" style="color: #2F4858;">
                                                 {post.title}
                                             </h2>
                                             <div class="flex flex-wrap gap-2 mb-2">
                                                 {post.tags.map((tag) => (
-                                                    <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm">
+                                                    <span class="px-3 py-1 rounded-full text-sm border-2"
+                                                          style="background-color: #f9f9f9; border-color: #B08A30; color: #7f1d1d;">
                                                         {tag}
                                                     </span>
                                                 ))}
@@ -70,7 +86,7 @@ const posts = [
                                                     day: "numeric",
                                                 })}
                                             </p>
-                                            <div class="font-sans text-gray-700 text-xl">
+                                            <div class="font-sans text-gray-700 text-xl leading-relaxed">
                                                 {post.short_body}
                                             </div>
                                         </div>
@@ -80,7 +96,7 @@ const posts = [
                         ))
                     ) : (
                         <div class="text-center py-16">
-                            <h3 class="text-2xl font-semibold text-slate-800 mb-4">
+                            <h3 class="text-2xl font-semibold mb-4" style="color: #2F4858;">
                                 Coming Soon
                             </h3>
                             <p class="text-slate-600 font-sans">
@@ -93,25 +109,25 @@ const posts = [
         </section>
 
         <!-- Topics Filter -->
-        <section class="py-16 bg-gray-50">
+        <section class="py-16" style="background-color: #f6f2ea;">
             <div class="container mx-auto px-6 max-w-4xl text-center">
-                <h2 class="text-3xl font-semibold text-slate-800 mb-8">
+                <h2 class="text-3xl font-semibold mb-8 victoria-font" style="color: #2F4858;">
                     Browse by Topic
                 </h2>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <span class="px-4 py-2 rounded-full text-sm font-medium text-slate-600 border border-gray-300">
+                    <span class="px-4 py-2 rounded-full text-sm font-medium border border-gray-300" style="color: #2F4858; background-color: #FBF9F4;">
                         Historical Wealth
                     </span>
-                    <span class="px-4 py-2 rounded-full text-sm font-medium text-slate-600 border border-gray-300">
+                    <span class="px-4 py-2 rounded-full text-sm font-medium border border-gray-300" style="color: #2F4858; background-color: #FBF9F4;">
                         Modern Finance
                     </span>
-                    <span class="px-4 py-2 rounded-full text-sm font-medium text-slate-600 border border-gray-300">
+                    <span class="px-4 py-2 rounded-full text-sm font-medium border border-gray-300" style="color: #2F4858; background-color: #FBF9F4;">
                         Investment Strategy
                     </span>
-                    <span class="px-4 py-2 rounded-full text-sm font-medium text-slate-600 border border-gray-300">
+                    <span class="px-4 py-2 rounded-full text-sm font-medium border border-gray-300" style="color: #2F4858; background-color: #FBF9F4;">
                         Economic History
                     </span>
-                    <span class="px-4 py-2 rounded-full text-sm font-medium text-slate-600 border border-gray-300">
+                    <span class="px-4 py-2 rounded-full text-sm font-medium border border-gray-300" style="color: #2F4858; background-color: #FBF9F4;">
                         Wealth Psychology
                     </span>
                 </div>
@@ -122,3 +138,19 @@ const posts = [
         </section>
     </div>
 </Layout>
+
+<style>
+    .victoria-font {
+        font-family: 'Victoria', 'Times New Roman', serif;
+    }
+    
+    .hero-section {
+        position: relative;
+    }
+    
+    .hero-overlay {
+        background: 
+            linear-gradient(rgba(122,49,50,0.55), rgba(122,49,50,0.35)),
+            radial-gradient(ellipse at 50% 40%, rgba(176,138,48,0.18), transparent 60%);
+    }
+</style>
