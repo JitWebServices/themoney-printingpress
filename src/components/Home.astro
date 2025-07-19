@@ -1,28 +1,63 @@
 ---
-// Sample recent posts - replace with actual CMS later
-const recentPosts = [
-    {
-        slug: "medici-banking-empire",
-        title: "The Medici Bank: Renaissance Wealth Creation",
-        date_created: "2024-01-15",
-        tags: ["Historical Wealth", "Banking", "Renaissance"],
-        short_body: "Exploring how the Medici family built one of history's most powerful banking empires and transformed Florence into the financial capital of Europe."
-    },
-    {
-        slug: "roman-trade-networks", 
-        title: "Modern Lessons from Ancient Roman Trade",
-        date_created: "2024-01-10",
-        tags: ["Economic History", "Trade", "Ancient Rome"],
-        short_body: "What today's entrepreneurs can learn from the sophisticated trading networks that powered the Roman Empire's unprecedented wealth."
-    },
-    {
-        slug: "tulip-mania-lessons",
-        title: "The Rise and Fall of Tulip Mania",
-        date_created: "2024-01-05", 
-        tags: ["Market Bubbles", "Financial History", "Netherlands"],
-        short_body: "Examining the world's first recorded speculative bubble and the timeless lessons it teaches about human psychology and market dynamics."
-    }
-];
+// src/components/Home.astro
+import directus from "../../lib/directus";
+import { readItems } from "@directus/sdk";
+import { getCategoryBadgeStyles } from "../utils/categoryStyles";
+
+// Fetch recent posts from Directus
+let recentPosts = [];
+try {
+    recentPosts = await directus.request(
+        readItems("posts", {
+            fields: [
+                "slug",
+                "title",
+                "date_created",
+                "tags",
+                "short_body",
+                "featured",
+                "category.name",
+                "category.slug",
+                "category.color"
+            ],
+            filter: {
+                site: { _eq: "marcos_vega" },
+                status: { _eq: "published" }
+            },
+            sort: ["-featured", "-date_created"],
+            limit: 3
+        })
+    );
+} catch (error) {
+    console.warn("Could not fetch posts from Directus, using fallback data");
+    // Fallback to sample data with new categories
+    recentPosts = [
+        {
+            slug: "medici-banking-empire",
+            title: "The Medici Bank: Renaissance Wealth Creation",
+            date_created: "2024-01-15",
+            tags: ["Banking", "Renaissance", "Italy"],
+            short_body: "Exploring how the Medici family built one of history's most powerful banking empires and transformed Florence into the financial capital of Europe.",
+            category: { name: "History", slug: "history", color: "#8C2325" }
+        },
+        {
+            slug: "modern-market-analysis", 
+            title: "Understanding Modern Market Cycles",
+            date_created: "2024-01-10",
+            tags: ["Markets", "Analysis", "Investment"],
+            short_body: "What historical patterns reveal about today's market dynamics and how understanding economic cycles can inform better investment decisions.",
+            category: { name: "Economics", slug: "economics", color: "#8C2325" }
+        },
+        {
+            slug: "building-personal-wealth",
+            title: "The Fundamentals of Personal Wealth Building",
+            date_created: "2024-01-05", 
+            tags: ["Saving", "Investment", "Strategy"],
+            short_body: "Timeless principles for building personal wealth that have worked across centuries, adapted for modern financial realities.",
+            category: { name: "Personal Finance", slug: "personal_finance", color: "#2F4858" }
+        }
+    ];
+}
 ---
 
 <div class="max-w-screen-xl shadow-2xl mx-auto flex-1 text-slate-900" style="background-color: #f6f2ea;">
@@ -63,43 +98,67 @@ const recentPosts = [
 			</h2>
 			
 			<div class="grid md:grid-cols-1 gap-8 mb-12">
-				{recentPosts.map((post) => (
-					<div class="border-b border-gray-200 pb-8 last:border-b-0">
-						<div class="p-4 mx-auto">
-							<a href={`/blog/${post.slug}`} class="font-semibold">
-								<div class="flex flex-col gap-3">
-									<h2 class="text-3xl hover:text-slate-900 transition-colors duration-200"
-										style="hover:color: #9e383d;">
-										{post.title}
-									</h2>
-									<div class="flex flex-wrap gap-2 mb-2">
-										{post.tags.map((tag) => (
-											<span class="text-gray-700 px-3 py-1 rounded-full text-sm border-2"
-												  style="background-color: #f9f9f9; border-color: #d4af37; color: #7f1d1d;">
-												{tag}
-											</span>
-										))}
+				{recentPosts.map((post) => {
+					const categoryBadgeStyle = post.category ? getCategoryBadgeStyles(post.category.slug) : null;
+					
+					return (
+						<div class="border-b border-gray-200 pb-8 last:border-b-0">
+							<div class="p-4 mx-auto">
+								<a href={`/blog/${post.slug}`} class="font-semibold">
+									<div class="flex flex-col gap-3">
+										{post.featured && (
+											<div class="flex items-center gap-2 mb-2">
+												<span class="px-3 py-1 rounded-full text-xs font-medium text-white" 
+													  style="background-color: #B08A30;">
+													⭐ Featured
+												</span>
+											</div>
+										)}
+										
+										<h2 class="text-3xl hover:text-slate-900 transition-colors duration-200"
+											style="color: #2F4858;">
+											{post.title}
+										</h2>
+										
+										<div class="flex flex-wrap gap-2 mb-2">
+											{post.category && categoryBadgeStyle && (
+												<span 
+													class="px-3 py-1 rounded-full text-sm font-medium"
+													style={`background-color: ${categoryBadgeStyle.backgroundColor}; border: ${categoryBadgeStyle.border}; color: ${categoryBadgeStyle.color};`}
+												>
+													{post.category.name}
+												</span>
+											)}
+											{post.tags && post.tags.map((tag) => (
+												<span class="text-gray-700 px-3 py-1 rounded-full text-sm border"
+													  style="background-color: #f9f9f9; border-color: #d1d5db; color: #6b7280;">
+													{tag}
+												</span>
+											))}
+										</div>
+										
+										<p class="text-gray-500 border-t-1 border-b-1 border-gray-300 py-2 mb-2">
+											{new Date(post.date_created).toLocaleDateString("en-US", {
+												year: "numeric",
+												month: "long", 
+												day: "numeric",
+											})}
+										</p>
+										
+										<div class="text-gray-700 text-xl leading-relaxed">
+											{post.short_body}
+										</div>
 									</div>
-									<p class="text-gray-500 border-t-1 border-b-1 border-gray-300 py-2 mb-2">
-										{new Date(post.date_created).toLocaleDateString("en-US", {
-											year: "numeric",
-											month: "long", 
-											day: "numeric",
-										})}
-									</p>
-									<div class="text-gray-700 text-xl leading-relaxed">
-										{post.short_body}
-									</div>
-								</div>
-							</a>
+								</a>
+							</div>
 						</div>
-					</div>
-				))}
+					);
+				})}
 			</div>
 			
 			<div class="text-center">
 				<a
-					href="/archive"
+					href="/blog"
 					class="inline-block text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
 					style="background: linear-gradient(135deg, #9e383d, #7f1d1d);"
 					onmouseover="this.style.transform='translateY(-2px)'"
@@ -140,46 +199,97 @@ const recentPosts = [
 		<div class="container mx-auto px-6 max-w-6xl">
 			<h2 class="text-3xl font-semibold text-center mb-12 victoria-font"
 				style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
-				Explore Topics
+				Explore Categories
 			</h2>
 			<div class="grid md:grid-cols-3 gap-8">
 				<div class="p-8 rounded-2xl shadow-sm text-center hover:shadow-lg transition-all duration-200" style="background-color: #f6f2ea;">
 					<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
-						 style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
+						 style="background: linear-gradient(135deg, #8C2325, #A02A2C);">
 						<span class="text-white text-2xl">🏛️</span>
 					</div>
 					<h3 class="text-xl font-semibold mb-4 victoria-font"
 						style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
-						Historical Wealth
+						<a href="/blog?category=history" class="hover:underline">
+							History
+						</a>
 					</h3>
 					<p class="text-slate-700 leading-relaxed">
-						Stories of ancient fortunes, from Roman merchants to Renaissance bankers.
+						Stories of wealth and power throughout the ages, from ancient empires to modern dynasties.
 					</p>
 				</div>
 				<div class="p-8 rounded-2xl shadow-sm text-center hover:shadow-lg transition-all duration-200" style="background-color: #f6f2ea;">
 					<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
-						 style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
-						<span class="text-white text-2xl">📈</span>
+						 style="background: linear-gradient(135deg, #2F4858, #1e3a4a);">
+						<span class="text-white text-2xl">💰</span>
 					</div>
 					<h3 class="text-xl font-semibold mb-4 victoria-font"
 						style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
-						Modern Markets
+						<a href="/blog?category=personal_finance" class="hover:underline">
+							Personal Finance
+						</a>
 					</h3>
 					<p class="text-slate-700 leading-relaxed">
-						Analysis of contemporary wealth creation and financial innovation.
+						Practical strategies for building and preserving individual wealth.
 					</p>
 				</div>
 				<div class="p-8 rounded-2xl shadow-sm text-center hover:shadow-lg transition-all duration-200" style="background-color: #f6f2ea;">
 					<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
-						 style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
-						<span class="text-white text-2xl">💡</span>
+						 style="background: linear-gradient(135deg, #B08A30, #8E6C1E);">
+						<span class="text-white text-2xl">🌍</span>
 					</div>
 					<h3 class="text-xl font-semibold mb-4 victoria-font"
 						style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
-						Timeless Principles
+						<a href="/blog?category=culture" class="hover:underline">
+							Culture
+						</a>
 					</h3>
 					<p class="text-slate-700 leading-relaxed">
-						The enduring strategies that have created wealth across all eras.
+						How cultural attitudes and social norms influence wealth creation and distribution.
+					</p>
+				</div>
+				<div class="p-8 rounded-2xl shadow-sm text-center hover:shadow-lg transition-all duration-200" style="background-color: #f6f2ea;">
+					<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+						 style="background: linear-gradient(135deg, #8C2325, #A02A2C);">
+						<span class="text-white text-2xl">📊</span>
+					</div>
+					<h3 class="text-xl font-semibold mb-4 victoria-font"
+						style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
+						<a href="/blog?category=economics" class="hover:underline">
+							Economics
+						</a>
+					</h3>
+					<p class="text-slate-700 leading-relaxed">
+						Economic principles, market analysis, and the forces that shape prosperity.
+					</p>
+				</div>
+				<div class="p-8 rounded-2xl shadow-sm text-center hover:shadow-lg transition-all duration-200" style="background-color: #f6f2ea;">
+					<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+						 style="background: linear-gradient(135deg, #6F7F53, #5a6b42);">
+						<span class="text-white text-2xl">🏖️</span>
+					</div>
+					<h3 class="text-xl font-semibold mb-4 victoria-font"
+						style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
+						<a href="/blog?category=lifestyle" class="hover:underline">
+							Lifestyle
+						</a>
+					</h3>
+					<p class="text-slate-700 leading-relaxed">
+						The intersection of wealth and living well across different eras and societies.
+					</p>
+				</div>
+				<div class="p-8 rounded-2xl shadow-sm text-center hover:shadow-lg transition-all duration-200" style="background-color: #f6f2ea;">
+					<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+						 style="background: linear-gradient(135deg, #A02A2C, #8C2325);">
+						<span class="text-white text-2xl">💭</span>
+					</div>
+					<h3 class="text-xl font-semibold mb-4 victoria-font"
+						style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
+						<a href="/blog?category=opinion" class="hover:underline">
+							Opinion
+						</a>
+					</h3>
+					<p class="text-slate-700 leading-relaxed">
+						Editorial perspectives and commentary on wealth, society, and financial trends.
 					</p>
 				</div>
 			</div>
@@ -221,20 +331,5 @@ const recentPosts = [
 <style>
 	.victoria-font {
 		font-family: 'Victoria', 'Times New Roman', serif;
-	}
-	
-	.hero-section {
-		position: relative;
-	}
-	
-	.hero-overlay {
-		background: 
-			linear-gradient(rgba(122,49,50,0.55), rgba(122,49,50,0.35)),
-			radial-gradient(ellipse at 50% 40%, rgba(176,138,48,0.18), transparent 60%);
-	}
-	
-	.hero-separator {
-		height: 8px;
-		background: linear-gradient(to bottom, rgba(0,0,0,0.18), transparent);
 	}
 </style>

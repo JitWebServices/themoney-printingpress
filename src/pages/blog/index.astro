@@ -1,14 +1,39 @@
 ---
+// src/pages/blog/index.astro
 import Layout from "../../layouts/Layout.astro";
 import directus from "../../../lib/directus";
 import { readItems } from "@directus/sdk";
 import PostCard from "../../components/PostCard.astro";
+import { getActiveCategoryStyles } from "../../utils/categoryStyles";
+
+const { category } = Astro.url.searchParams;
+
+// Get all categories for the filter
+const categories = await directus.request(
+    readItems("categories", {
+        fields: ["id", "name", "slug", "color"],
+        filter: {
+            status: { _eq: "published" }
+        },
+        sort: ["sort", "name"]
+    })
+);
+
+// Build filter for posts
+let postFilter: any = {
+    site: { _eq: "marcos_vega" },
+    status: { _eq: "published" }
+};
+
+if (category) {
+    postFilter.category = { slug: { _eq: category } };
+}
 
 const posts = await directus.request(
     readItems("posts", {
         fields: [
             "slug",
-            "title",
+            "title", 
             "date_created",
             "user_created",
             "status",
@@ -16,21 +41,138 @@ const posts = await directus.request(
             "tags",
             "site",
             "short_body",
+            "featured",
+            "category.name",
+            "category.slug",
+            "category.color"
         ],
-        sort: ["-date_created"],
-        filter: {
-            site: {
-                _eq: "marcos_vega",
-            },
-        },
+        sort: ["-featured", "-date_created"],
+        filter: postFilter
     }),
 );
+
+const selectedCategory = categories.find(cat => cat.slug === category);
 ---
 
-<Layout title="Blog">
-    <div
-        class="max-w-screen-xl bg-gray-100 shadow-2xl mx-auto p-10 flex flex-col gap-6 flex-1"
-    >
-        {posts.map((post) => <PostCard post={post} />)}
+<Layout>
+    <div class="max-w-screen-xl shadow-2xl mx-auto flex-1 font-serif text-slate-900" style="background-color: #f6f2ea;">
+        
+        <!-- Header Section -->
+        <section class="relative hero">
+            <img
+              src="https://images.unsplash.com/photo-1519452634265-7b1fbfd1aa1e?auto=format&fit=crop&w=2069&q=80"
+              alt="Ancient manuscript and historical documents"
+              class="absolute inset-0 w-full h-full object-cover hero-img"
+            />
+          
+            <!-- Overlay layer -->
+            <div class="absolute inset-0 hero-overlay pointer-events-none"></div>
+          
+            <!-- Content -->
+            <div class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
+              <h1 class="font-serif font-light tracking-tight text-4xl md:text-5xl text-[#FBF9F4] mb-6 drop-shadow-[0_2px_3px_rgba(0,0,0,0.45)]">
+                {selectedCategory ? selectedCategory.name : "All Posts"}
+              </h1>
+              <!-- Brass underline accent -->
+              <div class="w-16 h-[3px] bg-[#B08A30] mb-6"></div>
+              <p class="max-w-2xl font-sans text-base md:text-xl leading-relaxed text-[rgba(246,242,234,0.95)] tracking-wide">
+                {selectedCategory 
+                    ? `Exploring ${selectedCategory.name.toLowerCase()} and the timeless principles of prosperity.`
+                    : "A complete collection of insights on wealth, history, and the timeless principles of prosperity."
+                }
+              </p>
+            </div>
+          
+            <!-- Bottom fade separator -->
+            <div class="absolute bottom-0 left-0 w-full h-8 pointer-events-none bg-gradient-to-b from-[rgba(0,0,0,0.25)] to-transparent"></div>
+        </section>
+
+        <!-- Category Filter -->
+        <section class="py-8" style="background-color: #FBF9F4;">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a
+                        href="/blog"
+                        class={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:shadow-md ${
+                            !category ? "shadow-md" : ""
+                        }`}
+                        style={!category 
+                            ? "background-color: #9e383d; color: #FBF9F4; border: 2px solid #9e383d;" 
+                            : "background-color: #FBF9F4; color: #6b7280; border: 2px solid #d1d5db;"
+                        }
+                    >
+                        All Posts
+                    </a>
+                    {categories.map((cat) => {
+                        const isSelected = category === cat.slug;
+                        const activeStyles = isSelected ? getActiveCategoryStyles(cat.slug) : null;
+                        
+                        return (
+                            <a
+                                href={`/blog?category=${cat.slug}`}
+                                class={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:shadow-md ${
+                                    isSelected ? "shadow-md" : ""
+                                }`}
+                                style={isSelected && activeStyles
+                                    ? `background-color: ${activeStyles.backgroundColor}; color: ${activeStyles.color}; border: ${activeStyles.border};`
+                                    : "background-color: #FBF9F4; color: #6b7280; border: 2px solid #d1d5db;"
+                                }
+                            >
+                                {cat.name}
+                            </a>
+                        );
+                    })}
+                </div>
+            </div>
+        </section>
+
+        <!-- Posts Grid -->
+        <section class="py-12" style="background-color: #FBF9F4;">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="space-y-8">
+                    {posts.length > 0 ? (
+                        posts.map((post) => (
+                            <PostCard post={post} />
+                        ))
+                    ) : (
+                        <div class="text-center py-16">
+                            <h3 class="text-2xl font-semibold mb-4" style="color: #2F4858;">
+                                {selectedCategory ? `No posts in ${selectedCategory.name}` : "No posts found"}
+                            </h3>
+                            <p class="text-slate-600 font-sans">
+                                {selectedCategory 
+                                    ? "Check back soon for new content in this category."
+                                    : "The blog is being prepared. Check back soon for fascinating insights into wealth through the ages."
+                                }
+                            </p>
+                            {selectedCategory && (
+                                <div class="mt-6">
+                                    <a
+                                        href="/blog"
+                                        class="inline-block border-2 text-slate-800 font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg"
+                                        style="border-color: #d4af37; color: #9e383d;"
+                                    >
+                                        View All Posts
+                                    </a>
+                                </div>
+                            )}
+                        </div>
+                    )}
+                </div>
+            </div>
+        </section>
     </div>
 </Layout>
+
+<style>
+    .hero {
+        height: 300px;
+        position: relative;
+    }
+    
+    .hero-overlay {
+        background: 
+            linear-gradient(rgba(122,49,50,0.55), rgba(122,49,50,0.35)),
+            radial-gradient(ellipse at 50% 40%, rgba(176,138,48,0.18), transparent 60%);
+    }
+</style>

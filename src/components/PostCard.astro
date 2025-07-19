@@ -1,5 +1,8 @@
 ---
+// src/components/PostCard.astro
 import { type Post } from "../../lib/directus";
+import { getCategoryBadgeStyles } from "../utils/categoryStyles";
+
 export interface Props {
 	post: Post;
 }
@@ -12,33 +15,53 @@ const date = new Date(post.date_created).toLocaleDateString("en-US", {
 	day: "numeric",
 });
 
-console.log(post.tags);
+// Get category styles
+const categoryBadgeStyle = post.category ? getCategoryBadgeStyles(post.category.slug) : null;
 ---
 
-<div class="p-4 mx-auto">
-	<a href={`/blog/${post.slug}`} class="font-serif font-semibold">
-		<div class="flex flex-col gap-3">
-			<h2 class="text-3xl hover:text-slate-900">
-				{post.title}
-			</h2>
-			<div class="flex flex-wrap gap-2 mb-2">
-				{
-					post.tags.map((tag) => (
-						<span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm">
+<div class="border-b border-gray-200 pb-8 last:border-b-0">
+	<div class="p-4 mx-auto">
+		<a href={`/blog/${post.slug}`} class="font-serif font-semibold">
+			<div class="flex flex-col gap-3">
+				{post.featured && (
+					<div class="flex items-center gap-2 mb-2">
+						<span class="px-3 py-1 rounded-full text-xs font-medium text-white" 
+							  style="background-color: #B08A30;">
+							⭐ Featured
+						</span>
+					</div>
+				)}
+				
+				<h2 class="text-3xl hover:text-slate-900 transition-colors duration-200" 
+					style="color: #2F4858;">
+					{post.title}
+				</h2>
+				
+				<div class="flex flex-wrap gap-2 mb-2">
+					{post.category && categoryBadgeStyle && (
+						<span 
+							class="px-3 py-1 rounded-full text-sm font-medium"
+							style={`background-color: ${categoryBadgeStyle.backgroundColor}; border: ${categoryBadgeStyle.border}; color: ${categoryBadgeStyle.color};`}
+						>
+							{post.category.name}
+						</span>
+					)}
+					{post.tags && post.tags.map((tag) => (
+						<span class="px-3 py-1 rounded-full text-sm border"
+							  style="background-color: #f9f9f9; border-color: #d1d5db; color: #6b7280;">
 							{tag}
 						</span>
-					))
-				}
+					))}
+				</div>
+				
+				<p class="font-sans text-gray-500 border-t-1 border-b-1 border-gray-300 py-2 mb-2">
+					{date}
+				</p>
+				
+				<div class="font-sans text-gray-700 text-xl leading-relaxed">
+					{post.short_body}
+				</div>
 			</div>
-			<p
-				class="font-sans text-gray-500 border-t-1 border-b-1 border-gray-300 py-2 mb-2"
-			>
-				{date}
-			</p>
-			<div
-				class="font-sans text-gray-700 text-xl"
-				set:html={post.short_body}
-			/>
-		</div>
-	</a>
+		</a>
+	</div>
 </div>

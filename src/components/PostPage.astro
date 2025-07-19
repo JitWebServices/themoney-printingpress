@@ -1,5 +1,8 @@
 ---
+// src/components/PostPage.astro
 import { type Post } from "../../lib/directus";
+import { getCategoryBadgeStyles, getActiveCategoryStyles } from "../utils/categoryStyles";
+
 export interface Props {
 	post: Post;
 }
@@ -10,33 +13,106 @@ const date = new Date(post.date_created).toLocaleDateString("en-US", {
 	month: "long",
 	day: "numeric",
 });
+
+// Get category styles
+const categoryBadgeStyle = post.category ? getCategoryBadgeStyles(post.category.slug) : null;
+const categoryActiveStyle = post.category ? getActiveCategoryStyles(post.category.slug) : null;
 ---
 
-<div class="max-w-screen-xl bg-gray-100 shadow-2xl mx-auto p-10 flex-1">
-	<div class="font-serif font-semibold">
-		<p class="py-2"><a href="/blog">blog</a> | {post.slug}</p>
-		<div class="flex flex-col gap-5">
-			<h2 class="text-3xl hover:text-slate-900">
-				{post.title}
-			</h2>
-			<div class="flex flex-wrap gap-2 mb-2">
-				{
-					post.tags.map((tag) => (
-						<span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm">
-							{tag}
-						</span>
-					))
-				}
+<div class="max-w-screen-xl shadow-2xl mx-auto flex-1 text-slate-900" style="background-color: #f6f2ea;">
+	<div class="max-w-4xl mx-auto px-6 py-12">
+		
+		<!-- Breadcrumb -->
+		<nav class="mb-8">
+			<div class="flex items-center space-x-2 text-sm text-gray-600">
+				<a href="/" class="hover:text-gray-800 transition-colors" style="color: #9e383d;">Home</a>
+				<span>/</span>
+				<a href="/blog" class="hover:text-gray-800 transition-colors" style="color: #9e383d;">Blog</a>
+				{post.category && (
+					<>
+						<span>/</span>
+						<a href={`/blog?category=${post.category.slug}`} 
+						   class="hover:text-gray-800 transition-colors" 
+						   style="color: #9e383d;">
+							{post.category.name}
+						</a>
+					</>
+				)}
+				<span>/</span>
+				<span class="text-gray-500">{post.slug}</span>
 			</div>
-			<p
-				class="font-sans text-gray-500 border-t-1 border-b-1 border-gray-300 py-2 mb-2"
-			>
-				{date}
+		</nav>
+
+		<article class="font-serif">
+			<!-- Featured Badge -->
+			{post.featured && (
+				<div class="mb-4">
+					<span class="px-4 py-2 rounded-full text-sm font-medium text-white" 
+						  style="background-color: #B08A30;">
+						⭐ Featured Article
+					</span>
+				</div>
+			)}
+
+			<!-- Title -->
+			<h1 class="text-4xl md:text-5xl font-light mb-6 leading-tight victoria-font" 
+				style="color: #2F4858;">
+				{post.title}
+			</h1>
+
+			<!-- Category and Tags -->
+			<div class="flex flex-wrap gap-3 mb-6">
+				{post.category && categoryBadgeStyle && (
+					<span 
+						class="px-4 py-2 rounded-full text-sm font-medium"
+						style={`background-color: ${categoryBadgeStyle.backgroundColor}; border: ${categoryBadgeStyle.border}; color: ${categoryBadgeStyle.color};`}
+					>
+						{post.category.name}
+					</span>
+				)}
+				{post.tags && post.tags.map((tag) => (
+					<span class="px-3 py-2 rounded-full text-sm border"
+						  style="background-color: #f9f9f9; border-color: #d1d5db; color: #6b7280;">
+						{tag}
+					</span>
+				))}
+			</div>
+
+			<!-- Date -->
+			<p class="font-sans text-gray-600 mb-8 pb-4 border-b border-gray-200">
+				Published on {date}
 			</p>
-			<div
-				class="font-sans text-gray-800 text-lg prose prose-slate max-w-none"
-				set:html={post.body}
-			/>
+
+			<!-- Content -->
+			<div class="font-sans text-gray-800 text-lg leading-relaxed prose prose-slate max-w-none prose-headings:victoria-font prose-headings:text-slate-800 prose-a:text-red-800 prose-a:no-underline hover:prose-a:underline prose-blockquote:border-l-4 prose-blockquote:border-yellow-600 prose-blockquote:italic"
+				 set:html={post.body} />
+		</article>
+
+		<!-- Navigation -->
+		<div class="mt-16 pt-8 border-t border-gray-200">
+			<div class="flex justify-between items-center">
+				<a href="/blog" 
+				   class="inline-flex items-center px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:shadow-lg"
+				   style="background-color: #f6f2ea; border: 2px solid #d4af37; color: #9e383d;"
+				   onmouseover="this.style.backgroundColor='#d4af37'; this.style.color='white';"
+				   onmouseout="this.style.backgroundColor='#f6f2ea'; this.style.color='#9e383d';">
+					← Back to Blog
+				</a>
+				
+				{post.category && categoryActiveStyle && (
+					<a href={`/blog?category=${post.category.slug}`}
+					   class="inline-flex items-center px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:shadow-lg"
+					   style={`background-color: ${categoryActiveStyle.backgroundColor}; border: ${categoryActiveStyle.border}; color: ${categoryActiveStyle.color};`}>
+						More {post.category.name} →
+					</a>
+				)}
+			</div>
 		</div>
 	</div>
 </div>
+
+<style>
+	.victoria-font {
+		font-family: 'Playfair Display', 'Times New Roman', serif;
+	}
+</style>
