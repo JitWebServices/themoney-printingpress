@@ -28,31 +28,74 @@ const recentPosts = [
 <div class="max-w-screen-xl shadow-2xl mx-auto flex-1 text-slate-900" style="background-color: #f6f2ea;">
 	
 	<!-- Hero Section -->
-	<section class="relative h-[420px] overflow-hidden">
+	<section class="relative overflow-hidden min-h-[520px] md:min-h-[560px]">
+		<!-- Background -->
 		<img
 		  src="/images/home-page-hero.jpg"
 		  alt="Early world map symbolizing historical trade and wealth"
-		  class="absolute inset-0 w-full h-full object-cover opacity-90"
-		  style="filter: contrast(1.05) brightness(0.92);"
-		  loading="lazy"
-		  decoding="async"
-		  onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9C272E 0%, #B83339 25%, #9C272E 50%, #B83339 75%, #9C272E 100%)';"
+		  class="absolute inset-0 w-full h-full object-cover object-center"
+		  style="filter:contrast(1.02) brightness(0.95) saturate(0.9);"
+		  loading="lazy" decoding="async"
 		/>
-		<div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(111,27,29,0.68),rgba(111,27,29,0.38)),radial-gradient(ellipse_at_50%_42%,rgba(176,138,48,0.18),transparent_60%)]"></div>
 	  
-		<div class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
-		  <h1 class="font-serif tracking-tight text-4xl md:text-6xl mb-5 text-[#FBF9F4] drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
-			Exploring Wealth Through History
-		  </h1>
-		  <div class="w-20 h-[3px] bg-[#B08A30] mb-6"></div>
-		  <p class="max-w-3xl font-sans text-lg md:text-xl leading-relaxed text-[rgba(246,242,234,0.95)] tracking-wide">
-			From ancient trade routes to modern financial markets, discover the timeless principles
-			of wealth creation and the stories behind the world's greatest fortunes.
-		  </p>
+		<!-- Softer overlays -->
+		<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(40,10,12,0.15)_0%,rgba(40,10,12,0.55)_90%)]"></div>
+		<div class="absolute inset-0 bg-gradient-to-b from-[#2b0d11]/35 via-[#2b0d11]/20 to-[#2b0d11]/35"></div>
+	  
+		<!-- Centered content -->
+		<div class="relative z-10 flex items-center justify-center h-full px-6 py-16">
+		  <div class="w-full max-w-4xl mx-auto text-center">
+	  
+			<!-- Hidden SEO H1 -->
+			<h1 class="sr-only">Historical Finance Principles for Modern Wealth Strategy</h1>
+	  
+			<!-- Editorial Lead -->
+			<p class="lead drop-cap font-serif text-[1.05rem] sm:text-lg md:text-xl leading-relaxed text-[#F8F3EC] mx-auto max-w-3xl backdrop-blur-[1px] drop-shadow-[0_2px_4px_rgba(0,0,0,0.55)]">
+			  The Money‑Printing Press uncovers the recurring patterns inside stories of merchants, empires, and markets—how fortunes were built, defended, and lost. Each issue distills a single principle you can use now.
+			</p>
+	  
+			<!-- Invite -->
+			<p class="mt-6 font-medium text-sm sm:text-base text-[#F8F3EC] drop-shadow-[0_2px_3px_rgba(0,0,0,0.55)]">
+			  <strong class="font-semibold">Join early readers</strong> for one focused historical finance lesson each week.
+			</p>
+	  
+			<!-- Form -->
+			<form id="hero-newsletter-form" novalidate
+				  class="mt-6 flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto">
+			  <label for="hero-email" class="sr-only">Email address</label>
+			  <input
+				id="hero-email"
+				type="email"
+				required
+				placeholder="Enter your email…"
+				aria-describedby="hero-newsletter-error"
+				class="flex-1 min-w-[240px] rounded-sm border border-[#D8CCB9] bg-white/92 px-4 py-3 text-sm font-serif
+					   focus:outline-none focus:border-[#B59030] focus:ring-2 focus:ring-[#B59030]/40 transition
+					   placeholder:text-neutral-500 shadow-sm"
+			  />
+			  <button type="submit"
+				class="px-6 py-3 bg-[#B59030] text-[#2B1A12] font-medium text-sm rounded-sm
+					   hover:bg-[#C6A041] active:bg-[#A07D27] focus:outline-none
+					   focus:ring-2 focus:ring-[#B59030]/50 transition shadow">
+				Subscribe
+			  </button>
+			</form>
+	  
+			<p id="hero-newsletter-error" class="mt-2 text-xs text-[#FFDDD9] hidden"></p>
+			<p id="hero-newsletter-success" class="mt-2 text-xs text-[#F8F3EC] font-medium hidden">
+			  Check your inbox for confirmation.
+			</p>
+			<p class="mt-2 text-[0.65rem] tracking-wide text-[#F8F3EC]/75">
+			  One email a week • no spam • unsubscribe anytime
+			</p>
+		  </div>
 		</div>
-	  
-		<div class="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-b from-[rgba(0,0,0,0.28)] to-transparent pointer-events-none"></div>
 	  </section>
+	  
+  
+		<!-- Subtle bottom fade -->
+		<div class="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
+	</section>
 
 	<!-- Latest Posts Section -->
 	<section class="py-20" style="background-color: #FBF9F4;">
@@ -110,131 +153,3 @@ const recentPosts = [
 			</div>
 		</div>
 	</section>
-
-	<!-- About Teaser Section -->
-	<section class="py-20" style="background-color: #f6f2ea;">
-		<div class="container mx-auto px-6 max-w-4xl text-center">
-			<h2 class="text-3xl font-semibold mb-6 victoria-font"
-				style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
-				The Money-Printing Press
-			</h2>
-			<p class="text-xl text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-				A deep dive into the history of wealth, from the merchant princes of Venice 
-				to the tech titans of Silicon Valley. Understanding how fortunes are built, 
-				lost, and rebuilt across the centuries.
-			</p>
-			<a
-				href="/about"
-				class="inline-block border-2 text-slate-800 font-semibold px-8 py-3 rounded-lg transition-all duration-200 hover:shadow-lg"
-				style="border-color: #d4af37; color: #9e383d;"
-				onmouseover="this.style.backgroundColor='#d4af37'; this.style.color='white'; this.style.transform='translateY(-1px)'"
-				onmouseout="this.style.backgroundColor='transparent'; this.style.color='#9e383d'; this.style.transform='translateY(0)'"
-			>
-				Learn More About This Project
-			</a>
-		</div>
-	</section>
-
-	<!-- Featured Topics -->
-	<section class="py-20" style="background-color: #FBF9F4;">
-		<div class="container mx-auto px-6 max-w-6xl">
-			<h2 class="text-3xl font-semibold text-center mb-12 victoria-font"
-				style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
-				Explore Topics
-			</h2>
-			<div class="grid md:grid-cols-3 gap-8">
-				<div class="p-8 rounded-2xl shadow-sm text-center hover:shadow-lg transition-all duration-200" style="background-color: #f6f2ea;">
-					<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
-						 style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
-						<span class="text-white text-2xl">🏛️</span>
-					</div>
-					<h3 class="text-xl font-semibold mb-4 victoria-font"
-						style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
-						Historical Wealth
-					</h3>
-					<p class="text-slate-700 leading-relaxed">
-						Stories of ancient fortunes, from Roman merchants to Renaissance bankers.
-					</p>
-				</div>
-				<div class="p-8 rounded-2xl shadow-sm text-center hover:shadow-lg transition-all duration-200" style="background-color: #f6f2ea;">
-					<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
-						 style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
-						<span class="text-white text-2xl">📈</span>
-					</div>
-					<h3 class="text-xl font-semibold mb-4 victoria-font"
-						style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
-						Modern Markets
-					</h3>
-					<p class="text-slate-700 leading-relaxed">
-						Analysis of contemporary wealth creation and financial innovation.
-					</p>
-				</div>
-				<div class="p-8 rounded-2xl shadow-sm text-center hover:shadow-lg transition-all duration-200" style="background-color: #f6f2ea;">
-					<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
-						 style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
-						<span class="text-white text-2xl">💡</span>
-					</div>
-					<h3 class="text-xl font-semibold mb-4 victoria-font"
-						style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
-						Timeless Principles
-					</h3>
-					<p class="text-slate-700 leading-relaxed">
-						The enduring strategies that have created wealth across all eras.
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Newsletter Signup -->
-	<section class="py-20" style="background: linear-gradient(135deg, #7f1d1d 0%, #9e383d 50%, #7f1d1d 100%);">
-		<div class="container mx-auto px-6 text-center">
-			<h2 class="text-3xl font-semibold text-white mb-4 victoria-font"
-				style="font-family: 'Victoria', 'Times New Roman', serif; color: #d4af37;">
-				Join the Press
-			</h2>
-			<p class="text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
-				Get weekly insights on wealth, history, and the timeless principles 
-				of building lasting prosperity.
-			</p>
-			<form class="flex flex-col sm:flex-row items-center gap-4 justify-center max-w-md mx-auto">
-				<input
-					type="email"
-					placeholder="your@email.com"
-					class="w-full px-4 py-3 rounded-lg text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 transition-all duration-200"
-					style="focus:ring-color: #d4af37;"
-				/>
-				<button
-					type="submit"
-					class="px-6 py-3 font-semibold rounded-lg transition-all duration-200 whitespace-nowrap hover:shadow-lg"
-					style="background-color: #d4af37; color: #9e383d;"
-					onmouseover="this.style.backgroundColor='#b8941f'; this.style.transform='translateY(-1px)'"
-					onmouseout="this.style.backgroundColor='#d4af37'; this.style.transform='translateY(0)'"
-				>
-					Subscribe
-				</button>
-			</form>
-		</div>
-	</section>
-</div>
-
-<style>
-	.victoria-font {
-		font-family: 'Victoria', 'Times New Roman', serif;
-	}
-	
-	.hero-section {
-		position: relative;
-	}
-	
-	.hero-overlay {
-		background: 
-			linear-gradient(rgba(122,49,50,0.55), rgba(122,49,50,0.35)),
-			radial-gradient(ellipse at 50% 40%, rgba(176,138,48,0.18), transparent 60%);
-	}
-	
-	.hero-separator {
-		height: 8px;
-		background: linear-gradient(to bottom, rgba(0,0,0,0.18), transparent);
-	}
-</style>
