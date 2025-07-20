@@ -27,72 +27,40 @@ const recentPosts = [
 
 <div class="max-w-screen-xl shadow-2xl mx-auto flex-1 text-slate-900" style="background-color: #f6f2ea;">
 	
-	<!-- Hero Section -->
-	<section class="relative overflow-hidden min-h-[520px] md:min-h-[560px]">
-		<!-- Background -->
+	<!-- Hero Section - Fixed height and positioning -->
+	<section class="relative h-[500px] overflow-hidden">
 		<img
 		  src="/images/home-page-hero.jpg"
 		  alt="Early world map symbolizing historical trade and wealth"
 		  class="absolute inset-0 w-full h-full object-cover object-center"
-		  style="filter:contrast(1.02) brightness(0.95) saturate(0.9);"
-		  loading="lazy" decoding="async"
+		  style="filter: contrast(1.05) brightness(0.92);"
+		  loading="lazy"
+		  decoding="async"
+		  onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9C272E 0%, #B83339 25%, #9C272E 50%, #B83339 75%, #9C272E 100%)';"
 		/>
+		<!-- Enhanced overlay for better text readability -->
+		<div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/20"></div>
 	  
-		<!-- Softer overlays -->
-		<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(40,10,12,0.15)_0%,rgba(40,10,12,0.55)_90%)]"></div>
-		<div class="absolute inset-0 bg-gradient-to-b from-[#2b0d11]/35 via-[#2b0d11]/20 to-[#2b0d11]/35"></div>
-	  
-		<!-- Centered content -->
-		<div class="relative z-10 flex items-center justify-center h-full px-6 py-16">
-		  <div class="w-full max-w-4xl mx-auto text-center">
-	  
-			<!-- Hidden SEO H1 -->
-			<h1 class="sr-only">Historical Finance Principles for Modern Wealth Strategy</h1>
-	  
-			<!-- Editorial Lead -->
-			<p class="lead drop-cap font-serif text-[1.05rem] sm:text-lg md:text-xl leading-relaxed text-[#F8F3EC] mx-auto max-w-3xl backdrop-blur-[1px] drop-shadow-[0_2px_4px_rgba(0,0,0,0.55)]">
-			  The Money‑Printing Press uncovers the recurring patterns inside stories of merchants, empires, and markets—how fortunes were built, defended, and lost. Each issue distills a single principle you can use now.
-			</p>
-	  
-			<!-- Invite -->
-			<p class="mt-6 font-medium text-sm sm:text-base text-[#F8F3EC] drop-shadow-[0_2px_3px_rgba(0,0,0,0.55)]">
-			  <strong class="font-semibold">Join early readers</strong> for one focused historical finance lesson each week.
-			</p>
-	  
-			<!-- Form -->
-			<form id="hero-newsletter-form" novalidate
-				  class="mt-6 flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto">
-			  <label for="hero-email" class="sr-only">Email address</label>
-			  <input
-				id="hero-email"
-				type="email"
-				required
-				placeholder="Enter your email…"
-				aria-describedby="hero-newsletter-error"
-				class="flex-1 min-w-[240px] rounded-sm border border-[#D8CCB9] bg-white/92 px-4 py-3 text-sm font-serif
-					   focus:outline-none focus:border-[#B59030] focus:ring-2 focus:ring-[#B59030]/40 transition
-					   placeholder:text-neutral-500 shadow-sm"
-			  />
-			  <button type="submit"
-				class="px-6 py-3 bg-[#B59030] text-[#2B1A12] font-medium text-sm rounded-sm
-					   hover:bg-[#C6A041] active:bg-[#A07D27] focus:outline-none
-					   focus:ring-2 focus:ring-[#B59030]/50 transition shadow">
-				Subscribe
-			  </button>
-			</form>
-	  
-			<p id="hero-newsletter-error" class="mt-2 text-xs text-[#FFDDD9] hidden"></p>
-			<p id="hero-newsletter-success" class="mt-2 text-xs text-[#F8F3EC] font-medium hidden">
-			  Check your inbox for confirmation.
-			</p>
-			<p class="mt-2 text-[0.65rem] tracking-wide text-[#F8F3EC]/75">
-			  One email a week • no spam • unsubscribe anytime
+		<!-- Centered content with adjusted positioning -->
+		<div class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
+		  <!-- Main body positioned higher -->
+		  <div class="transform -translate-y-18">
+			<h1 class="font-serif tracking-tight text-lg md:text-2xl mb-6 text-[#f6f2ea] ">
+				The Money‑Printing Press uncovers the recurring patterns inside stories of merchants,
+				empires, and markets—how fortunes were built, defended, and lost. Each issue distills a
+				single principle you can use now.
+			</h1>
+			<div class="w-20 h-[3px] bg-[#B08A30] mb-8 mx-auto"></div>
+		  </div>
+		  
+		  <!-- subscriber -->
+		  <div class="max-w-lg mx-auto px-4 -translate-y-20">
+			<p class="font-serif text-lg md:text-xl leading-relaxed text-[#f6f2ea] tracking-wide text-center ">
+				Join early readers for one focused historical finance lesson each week.
 			</p>
 		  </div>
 		</div>
-	  </section>
 	  
-  
 		<!-- Subtle bottom fade -->
 		<div class="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
 	</section>
