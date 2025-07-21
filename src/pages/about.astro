@@ -11,15 +11,15 @@ import Layout from '../layouts/Layout.astro';
 				
 				<!-- Who are you? Section -->
 				<div class="mb-16">
-					<h2 class="text-4xl font-semibold mb-12 text-center victoria-font"
+					<h2 class="text-4xl font-semibold mb-12 victoria-font"
 						style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
 						Who am I?
 					</h2>
 					
-					<div class="grid md:grid-cols-3 gap-12 items-start">
+					<div class="grid md:grid-cols-4 gap-12 items-start">
 						<!-- Image placeholder -->
-						<div class="text-center">
-							<div class="w-full aspect-square bg-gradient-to-br from-gray-300 to-gray-400 rounded-lg mb-6 flex items-center justify-center shadow-lg">
+						<div class="md:col-span-1">
+							<div class="w-full aspect-square bg-gradient-to-br from-gray-300 to-gray-400 rounded-lg mb-4 flex items-center justify-center shadow-lg">
 								<span class="text-gray-600 text-6xl">📸</span>
 							</div>
 							<p class="text-sm text-slate-500 italic">
@@ -27,49 +27,53 @@ import Layout from '../layouts/Layout.astro';
 							</p>
 						</div>
 						
-						<!-- About me content -->
-						<div class="md:col-span-2 space-y-6">
+						<!-- About me content - left aligned, taking up more space -->
+						<div class="md:col-span-3 space-y-6">
 							<p class="text-lg text-slate-700 leading-relaxed">
-								My name is Marcos. I’m a Cuban-born statistics student and aspiring financial advisor with a growing obsession in answering the question "What lessons does history hide?"
-
-I grew up in a world shaped by economic instability and political uncertainty. That experience left a mark. I’ve since spent years trying to piece together not just how money works, but how people work around it — the systems we build, the beliefs we cling to, and the stories we tell ourselves about value.
+								My name is Marcos. I'm a Cuban-born statistics student and aspiring financial advisor with a growing obsession in answering the question "What lessons does history hide?"
+							</p>
+							<p class="text-lg text-slate-700 leading-relaxed">
+								I grew up in a world shaped by economic instability and political uncertainty. That experience left a mark. I've since spent years trying to piece together not just how money works, but how people work around it — the systems we build, the beliefs we cling to, and the stories we tell ourselves about value.
 							</p>
 						</div>
 					</div>
 				</div>
 
-				<!-- Then came The Money-Printing Press Section -->
+				<!-- What This Blog Is Section -->
 				<div class="mb-16">
-					<h2 class="text-4xl font-semibold mb-12 text-center victoria-font"
+					<h2 class="text-4xl font-semibold mb-12 victoria-font"
 						style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
 						What This Blog Is
 					</h2>
 					
-					<div class="max-w-3xl mx-auto space-y-6">
+					<div class="space-y-6">
 						<p class="text-lg text-slate-700 leading-relaxed">
-							The Money-Printing Press is my attempt at preserving ideas that feel worth preserving while challenging the ones that don’t.
-
-Some posts will read like personal essays. Others will be sharper, shorter reflections. You’ll find thoughts on history, money, behavior, books, travel, culture, and more — all filtered through the lens of someone trying to build a good life with his eyes wide open.
-
-There’s no publishing schedule or promise of perfection. But there is effort. Every post here has been written with care and a sense of duty — to clarity, to honesty, and to the idea that better thinking leads to better living.
-
-This is a quiet corner on the internet. No fluff, no ragebait, no click-churn. Just thought, in print.
+							The Money-Printing Press is my attempt at preserving ideas that feel worth preserving while challenging the ones that don't.
+						</p>
+						<p class="text-lg text-slate-700 leading-relaxed">
+							Some posts will read like personal essays. Others will be sharper, shorter reflections. You'll find thoughts on history, money, behavior, books, travel, culture, and more — all filtered through the lens of someone trying to build a good life with his eyes wide open.
+						</p>
+						<p class="text-lg text-slate-700 leading-relaxed">
+							There's no publishing schedule or promise of perfection. But there is effort. Every post here has been written with care and a sense of duty — to clarity, to honesty, and to the idea that better thinking leads to better living.
+						</p>
+						<p class="text-lg text-slate-700 leading-relaxed">
+							This is a quiet corner on the internet. No fluff, no ragebait, no click-churn. Just thought, in print.
 						</p>
 					</div>
 				</div>
 
 				<!-- Follow on Socials Section -->
-				<div class="text-center p-12 rounded-2xl" style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
-					<h2 class="text-3xl font-semibold text-white mb-4 victoria-font">
+				<div class="p-12 rounded-2xl" style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
+					<h2 class="text-3xl font-semibold text-white mb-6 victoria-font">
 						Follow on Socials!
 					</h2>
-					<p class="text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
+					<p class="text-gray-200 mb-8 max-w-2xl leading-relaxed">
 						Stay connected and get the latest insights on wealth through the ages. 
 						From quick takes to deeper discussions, find me across these platforms.
 					</p>
 					
 					<!-- Social Media Grid -->
-					<div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto mb-8">
+					<div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mb-8">
 						<!-- Instagram -->
 						<a
 							href="#"
@@ -78,8 +82,8 @@ This is a quiet corner on the internet. No fluff, no ragebait, no click-churn. J
 							<div class="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
 								<span class="text-white text-xl">📷</span>
 							</div>
-							<h3 class="text-white font-semibold text-sm">Instagram</h3>
-							<p class="text-gray-300 text-xs mt-1">Visual stories</p>
+							<h3 class="text-white font-semibold text-sm text-center">Instagram</h3>
+							<p class="text-gray-300 text-xs mt-1 text-center">Visual stories</p>
 						</a>
 						
 						<!-- Bluesky -->
@@ -90,8 +94,8 @@ This is a quiet corner on the internet. No fluff, no ragebait, no click-churn. J
 							<div class="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
 								<span class="text-white text-xl">🦋</span>
 							</div>
-							<h3 class="text-white font-semibold text-sm">Bluesky</h3>
-							<p class="text-gray-300 text-xs mt-1">Quick thoughts</p>
+							<h3 class="text-white font-semibold text-sm text-center">Bluesky</h3>
+							<p class="text-gray-300 text-xs mt-1 text-center">Quick thoughts</p>
 						</a>
 						
 						<!-- Reddit -->
@@ -102,8 +106,8 @@ This is a quiet corner on the internet. No fluff, no ragebait, no click-churn. J
 							<div class="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center">
 								<span class="text-white text-xl">📱</span>
 							</div>
-							<h3 class="text-white font-semibold text-sm">Reddit</h3>
-							<p class="text-gray-300 text-xs mt-1">Discussions</p>
+							<h3 class="text-white font-semibold text-sm text-center">Reddit</h3>
+							<p class="text-gray-300 text-xs mt-1 text-center">Discussions</p>
 						</a>
 						
 						<!-- Goodreads -->
@@ -114,13 +118,13 @@ This is a quiet corner on the internet. No fluff, no ragebait, no click-churn. J
 							<div class="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-yellow-600 to-amber-700 flex items-center justify-center">
 								<span class="text-white text-xl">📚</span>
 							</div>
-							<h3 class="text-white font-semibold text-sm">Goodreads</h3>
-							<p class="text-gray-300 text-xs mt-1">Reading list</p>
+							<h3 class="text-white font-semibold text-sm text-center">Goodreads</h3>
+							<p class="text-gray-300 text-xs mt-1 text-center">Reading list</p>
 						</a>
 					</div>
 					
 					<!-- Call to action -->
-					<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<div class="flex flex-col sm:flex-row gap-4">
 						<a
 							href="mailto:marcos@moneyprinting.press"
 							class="inline-block bg-white text-slate-800 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition shadow-lg"
