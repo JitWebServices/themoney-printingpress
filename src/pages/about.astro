@@ -5,212 +5,127 @@ import Layout from '../layouts/Layout.astro';
 <Layout>
 	<div class="max-w-screen-xl shadow-2xl mx-auto flex-1 text-slate-900" style="background-color: #f6f2ea;">
 		
-		<!-- Header Section -->
-		<section class="py-16 hero-section">
-			<img
-				src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-				alt="Ancient library with historical books"
-				class="w-full h-[300px] object-cover"
-				style="filter: saturate(0.3);"
-			/>
-			<div class="absolute inset-0 flex flex-col items-center justify-center hero-overlay">
-				<h1 class="text-4xl md:text-5xl font-light text-white mb-4 victoria-font tracking-tight"
-					style="font-family: 'Victoria', 'Times New Roman', serif; color: #B08A30; text-shadow: 0 1px 2px rgba(0,0,0,0.35);">
-					About
-				</h1>
-				<p class="text-lg md:text-xl max-w-2xl mx-auto tracking-wide" style="color: #F6F2EA;">
-					The story behind The Money-Printing Press and its mission to explore wealth through history.
-				</p>
-			</div>
-		</section>
-
 		<!-- Main Content -->
 		<section class="py-20" style="background-color: #FBF9F4;">
 			<div class="container mx-auto px-6 max-w-4xl">
 				
-				<!-- About the Project -->
+				<!-- Who are you? Section -->
 				<div class="mb-16">
-					<h2 class="text-4xl font-semibold mb-8 text-center victoria-font" style="color: #2F4858;">
-						The Money-Printing Press
+					<h2 class="text-4xl font-semibold mb-12 text-center victoria-font"
+						style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
+						Who am I?
 					</h2>
-					<div class="grid md:grid-cols-2 gap-12 items-center">
-						<div>
-							<img
-								src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-								alt="Ancient coins and historical currency"
-								class="w-full h-80 object-cover rounded-2xl shadow-lg"
-							/>
-						</div>
-						<div class="space-y-6">
-							<p class="text-lg text-slate-700">
-								Welcome to The Money-Printing Press, a deep exploration of wealth creation, 
-								preservation, and destruction throughout human history. This project examines 
-								the timeless principles that have governed prosperity across cultures and centuries.
-							</p>
-							<p class="text-lg text-slate-700">
-								From the merchant republics of medieval Italy to the financial innovations 
-								of modern Silicon Valley, we trace the patterns and strategies that have 
-								consistently created lasting wealth.
-							</p>
-							<p class="text-lg text-slate-700">
-								By understanding these historical precedents, we can better navigate today's 
-								financial landscape and build wealth that endures across generations.
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- About Marcos -->
-				<div class="mb-16 p-10 rounded-2xl" style="background-color: #f6f2ea;">
-					<h2 class="text-3xl font-semibold mb-8 text-center victoria-font" style="color: #2F4858;">
-						About Marcos Vega
-					</h2>
-					<div class="grid md:grid-cols-3 gap-8 items-start">
+					
+					<div class="grid md:grid-cols-3 gap-12 items-start">
+						<!-- Image placeholder -->
 						<div class="text-center">
-							<div class="w-56 h-56 bg-gradient-to-br from-gray-300 to-gray-400 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
-								<span class="text-gray-600 text-7xl">📸</span>
+							<div class="w-full aspect-square bg-gradient-to-br from-gray-300 to-gray-400 rounded-lg mb-6 flex items-center justify-center shadow-lg">
+								<span class="text-gray-600 text-6xl">📸</span>
 							</div>
 							<p class="text-sm text-slate-500 italic">
-								Marcos Vega<br/>Financial Historian & Writer
+								picture cred
 							</p>
 						</div>
+						
+						<!-- About me content -->
 						<div class="md:col-span-2 space-y-6">
 							<p class="text-lg text-slate-700 leading-relaxed">
-								Marcos Vega is a financial historian and wealth strategist with an insatiable curiosity 
-								about the patterns that govern prosperity throughout history. With a background spanning 
-								both quantitative finance and historical research, he brings a unique analytical lens 
-								to the study of wealth creation.
+								My name is Marcos. I’m a Cuban-born statistics student and aspiring financial advisor with a growing obsession in answering the question "What lessons does history hide?"
+
+I grew up in a world shaped by economic instability and political uncertainty. That experience left a mark. I’ve since spent years trying to piece together not just how money works, but how people work around it — the systems we build, the beliefs we cling to, and the stories we tell ourselves about value.
 							</p>
-							<p class="text-lg text-slate-700 leading-relaxed">
-								His fascination began during graduate studies in economic history, where he discovered 
-								that the same principles used by Venetian merchants in the 14th century were being 
-								employed by modern venture capitalists. This revelation sparked a lifelong quest to 
-								identify the timeless strategies that transcend specific eras and technologies.
-							</p>
-							<p class="text-lg text-slate-700 leading-relaxed">
-								When not researching historical financial documents or analyzing market patterns, 
-								Marcos can be found exploring used bookstores for forgotten economic treatises, 
-								traveling to historical financial centers, or crafting the perfect espresso—a skill 
-								he argues is as essential as compound interest for long-term success.
-							</p>
-							<div class="border-l-4 pl-6 italic text-slate-600" style="border-left-color: #B08A30;">
-								"The best investment strategies weren't invented yesterday—they were perfected 
-								centuries ago by people who understood that true wealth transcends any single 
-								lifetime."
-							</div>
 						</div>
 					</div>
 				</div>
 
-				<!-- Mission & Vision -->
+				<!-- Then came The Money-Printing Press Section -->
 				<div class="mb-16">
-					<h2 class="text-3xl font-semibold mb-8 text-center victoria-font" style="color: #2F4858;">
-						Mission & Philosophy
+					<h2 class="text-4xl font-semibold mb-12 text-center victoria-font"
+						style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
+						What This Blog Is
 					</h2>
-					<div class="grid md:grid-cols-2 gap-8">
-						<div class="p-8 rounded-xl shadow-md border-l-4" style="background-color: #FBF9F4; border-left-color: #B08A30;">
-							<h3 class="text-xl font-semibold mb-4 victoria-font" style="color: #2F4858;">Our Mission</h3>
-							<p class="text-slate-600 leading-relaxed">
-								To illuminate the timeless principles of wealth creation by examining 
-								history's greatest fortunes and the strategies behind them. We believe 
-								that understanding the past is key to building lasting prosperity in 
-								the present—and that the most profound financial wisdom has already 
-								been discovered, tested, and proven across multiple centuries.
-							</p>
-						</div>
-						<div class="p-8 rounded-xl shadow-md border-l-4" style="background-color: #FBF9F4; border-left-color: #B08A30;">
-							<h3 class="text-xl font-semibold mb-4 victoria-font" style="color: #2F4858;">Our Philosophy</h3>
-							<p class="text-slate-600 leading-relaxed">
-								True wealth creation follows patterns that have persisted for millennia. 
-								By studying these patterns—from the trading strategies of ancient 
-								Phoenicians to the investment principles of modern dynasties—we can 
-								build a comprehensive understanding that transcends market cycles, 
-								technological disruptions, and economic upheavals.
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- What You'll Find -->
-				<div class="mb-16">
-					<h2 class="text-3xl font-semibold mb-8 text-center victoria-font" style="color: #2F4858;">
-						What You'll Discover Here
-					</h2>
-					<div class="grid md:grid-cols-3 gap-8">
-						<div class="text-center p-6">
-							<div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
-								 style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
-								<span class="text-white text-3xl">📚</span>
-							</div>
-							<h3 class="text-lg font-semibold mb-3 victoria-font" style="color: #2F4858;">Historical Case Studies</h3>
-							<p class="text-slate-600 leading-relaxed">
-								Deep dives into the strategies used by history's most successful wealth builders, 
-								from the Medici banking empire to modern financial dynasties.
-							</p>
-						</div>
-						
-						<div class="text-center p-6">
-							<div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
-								 style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
-								<span class="text-white text-3xl">🔍</span>
-							</div>
-							<h3 class="text-lg font-semibold mb-3 victoria-font" style="color: #2F4858;">Pattern Recognition</h3>
-							<p class="text-slate-600 leading-relaxed">
-								Analysis of recurring themes and strategies that appear across different 
-								eras, cultures, and economic systems—the true constants of wealth creation.
-							</p>
-						</div>
-						
-						<div class="text-center p-6">
-							<div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
-								 style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
-								<span class="text-white text-3xl">⚡</span>
-							</div>
-							<h3 class="text-lg font-semibold mb-3 victoria-font" style="color: #2F4858;">Modern Applications</h3>
-							<p class="text-slate-600 leading-relaxed">
-								Practical ways to apply historical insights to today's investment landscape, 
-								business strategies, and personal wealth-building endeavors.
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- Personal Note -->
-				<div class="p-10 rounded-2xl mb-16" style="background: linear-gradient(to right, #f6f2ea, #F2ECE1);">
-					<h2 class="text-2xl font-semibold mb-6 text-center victoria-font" style="color: #2F4858;">
-						A Personal Note
-					</h2>
-					<div class="max-w-3xl mx-auto text-center">
-						<p class="text-lg text-slate-700 leading-relaxed mb-6">
-							This project represents more than academic curiosity—it's a personal quest to understand 
-							the fundamental forces that shape prosperity. Every article, every analysis, every historical 
-							connection draws from years of research, countless conversations with experts, and a genuine 
-							fascination with the stories behind great fortunes.
-						</p>
+					
+					<div class="max-w-3xl mx-auto space-y-6">
 						<p class="text-lg text-slate-700 leading-relaxed">
-							My hope is that by sharing these discoveries, we can all become better stewards of wealth, 
-							more thoughtful investors, and more informed participants in the great economic currents 
-							that have shaped—and continue to shape—our world.
+							The Money-Printing Press is my attempt at preserving ideas that feel worth preserving while challenging the ones that don’t.
+
+Some posts will read like personal essays. Others will be sharper, shorter reflections. You’ll find thoughts on history, money, behavior, books, travel, culture, and more — all filtered through the lens of someone trying to build a good life with his eyes wide open.
+
+There’s no publishing schedule or promise of perfection. But there is effort. Every post here has been written with care and a sense of duty — to clarity, to honesty, and to the idea that better thinking leads to better living.
+
+This is a quiet corner on the internet. No fluff, no ragebait, no click-churn. Just thought, in print.
 						</p>
 					</div>
 				</div>
 
-				<!-- Contact -->
+				<!-- Follow on Socials Section -->
 				<div class="text-center p-12 rounded-2xl" style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
 					<h2 class="text-3xl font-semibold text-white mb-4 victoria-font">
-						Let's Connect
+						Follow on Socials!
 					</h2>
 					<p class="text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
-						Have questions about wealth through the ages? Discovered an interesting historical 
-						financial pattern? Or simply want to discuss the intersection of history and finance? 
-						I'd love to hear from you.
+						Stay connected and get the latest insights on wealth through the ages. 
+						From quick takes to deeper discussions, find me across these platforms.
 					</p>
+					
+					<!-- Social Media Grid -->
+					<div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto mb-8">
+						<!-- Instagram -->
+						<a
+							href="#"
+							class="group bg-white/10 hover:bg-white/20 rounded-lg p-6 transition-all duration-200 hover:scale-105"
+						>
+							<div class="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+								<span class="text-white text-xl">📷</span>
+							</div>
+							<h3 class="text-white font-semibold text-sm">Instagram</h3>
+							<p class="text-gray-300 text-xs mt-1">Visual stories</p>
+						</a>
+						
+						<!-- Bluesky -->
+						<a
+							href="#"
+							class="group bg-white/10 hover:bg-white/20 rounded-lg p-6 transition-all duration-200 hover:scale-105"
+						>
+							<div class="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+								<span class="text-white text-xl">🦋</span>
+							</div>
+							<h3 class="text-white font-semibold text-sm">Bluesky</h3>
+							<p class="text-gray-300 text-xs mt-1">Quick thoughts</p>
+						</a>
+						
+						<!-- Reddit -->
+						<a
+							href="#"
+							class="group bg-white/10 hover:bg-white/20 rounded-lg p-6 transition-all duration-200 hover:scale-105"
+						>
+							<div class="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center">
+								<span class="text-white text-xl">📱</span>
+							</div>
+							<h3 class="text-white font-semibold text-sm">Reddit</h3>
+							<p class="text-gray-300 text-xs mt-1">Discussions</p>
+						</a>
+						
+						<!-- Goodreads -->
+						<a
+							href="#"
+							class="group bg-white/10 hover:bg-white/20 rounded-lg p-6 transition-all duration-200 hover:scale-105"
+						>
+							<div class="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-yellow-600 to-amber-700 flex items-center justify-center">
+								<span class="text-white text-xl">📚</span>
+							</div>
+							<h3 class="text-white font-semibold text-sm">Goodreads</h3>
+							<p class="text-gray-300 text-xs mt-1">Reading list</p>
+						</a>
+					</div>
+					
+					<!-- Call to action -->
 					<div class="flex flex-col sm:flex-row gap-4 justify-center">
 						<a
 							href="mailto:marcos@moneyprinting.press"
 							class="inline-block bg-white text-slate-800 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition shadow-lg"
 						>
-							Email Marcos
+							Email Me
 						</a>
 						<a
 							href="/archive"
@@ -219,7 +134,7 @@ import Layout from '../layouts/Layout.astro';
 							onmouseover="this.style.backgroundColor='#B08A30'; this.style.color='#9e383d';"
 							onmouseout="this.style.backgroundColor='transparent'; this.style.color='#B08A30';"
 						>
-							Explore the Archive
+							Read the Archive
 						</a>
 					</div>
 				</div>
@@ -231,15 +146,5 @@ import Layout from '../layouts/Layout.astro';
 <style>
 	.victoria-font {
 		font-family: 'Victoria', 'Times New Roman', serif;
-	}
-	
-	.hero-section {
-		position: relative;
-	}
-	
-	.hero-overlay {
-		background: 
-			linear-gradient(rgba(122,49,50,0.55), rgba(122,49,50,0.35)),
-			radial-gradient(ellipse at 50% 40%, rgba(176,138,48,0.18), transparent 60%);
 	}
 </style>
