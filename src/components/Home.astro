@@ -1,28 +1,11 @@
 ---
-// Sample recent posts - replace with actual CMS later
-const recentPosts = [
-    {
-        slug: "medici-banking-empire",
-        title: "The Medici Bank: Renaissance Wealth Creation",
-        date_created: "2024-01-15",
-        tags: ["Historical Wealth", "Banking", "Renaissance"],
-        short_body: "Exploring how the Medici family built one of history's most powerful banking empires and transformed Florence into the financial capital of Europe."
-    },
-    {
-        slug: "roman-trade-networks", 
-        title: "Modern Lessons from Ancient Roman Trade",
-        date_created: "2024-01-10",
-        tags: ["Economic History", "Trade", "Ancient Rome"],
-        short_body: "What today's entrepreneurs can learn from the sophisticated trading networks that powered the Roman Empire's unprecedented wealth."
-    },
-    {
-        slug: "tulip-mania-lessons",
-        title: "The Rise and Fall of Tulip Mania",
-        date_created: "2024-01-05", 
-        tags: ["Market Bubbles", "Financial History", "Netherlands"],
-        short_body: "Examining the world's first recorded speculative bubble and the timeless lessons it teaches about human psychology and market dynamics."
-    }
-];
+import { getCollection } from 'astro:content';
+
+// Get recent posts from content collection
+const allPosts = await getCollection('blog');
+const recentPosts = allPosts
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3); // Get the 3 most recent posts
 ---
 
 <div class="max-w-screen-xl shadow-2xl mx-auto flex-1 text-slate-900" style="background-color: #f6f2ea;">
@@ -81,10 +64,10 @@ const recentPosts = [
 								<div class="flex flex-col gap-3">
 									<h2 class="text-3xl hover:text-slate-900 transition-colors duration-200"
 										style="hover:color: #9e383d;">
-										{post.title}
+										{post.data.title}
 									</h2>
 									<div class="flex flex-wrap gap-2 mb-2">
-										{post.tags.map((tag) => (
+										{post.data.tags.map((tag) => (
 											<span class="text-gray-700 px-3 py-1 rounded-full text-sm border-2"
 												  style="background-color: #f9f9f9; border-color: #d4af37; color: #7f1d1d;">
 												{tag}
@@ -92,14 +75,14 @@ const recentPosts = [
 										))}
 									</div>
 									<p class="text-gray-500 border-t-1 border-b-1 border-gray-300 py-2 mb-2">
-										{new Date(post.date_created).toLocaleDateString("en-US", {
+										{post.data.date.toLocaleDateString("en-US", {
 											year: "numeric",
 											month: "long", 
 											day: "numeric",
 										})}
 									</p>
 									<div class="text-gray-700 text-xl leading-relaxed">
-										{post.short_body}
+										{post.data.description}
 									</div>
 								</div>
 							</a>
@@ -121,3 +104,4 @@ const recentPosts = [
 			</div>
 		</div>
 	</section>
+</div>

@@ -32,7 +32,7 @@ const isHomePage = normalize(currentPath) === "/";
 		</div>
 	</a>
 	
-	<!-- Navigation with updated color scheme -->
+	<!-- Navigation with updated color scheme (NO RESOURCES LINK) -->
 	<div style="background: linear-gradient(135deg, #9C272E 0%, #B83339 25%, #9C272E 50%, #B83339 75%, #9C272E 100%);">
 		<div class="w-full max-w-screen-xl mx-auto flex justify-center py-1">
 			<a
@@ -49,14 +49,6 @@ const isHomePage = normalize(currentPath) === "/";
 				style={isActive("/archive") ? "color: #f5f5dc; background: linear-gradient(135deg, #8b2635, #6d1f28);" : "color: white;"}
 			>
 				Archive
-			</a>
-
-			<a
-				href="/resources"
-				class={`text-lg px-4 py-2 mx-1 transition-all duration-300 ease-in-out ${isActive("/resources") ? "nav-active" : "nav-inactive"}`}
-				style={isActive("/resources") ? "color: #f5f5dc; background: linear-gradient(135deg, #8b2635, #6d1f28);" : "color: white;"}
-			>
-				Resources
 			</a>
 
 			<a

@@ -1,42 +1,47 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import directus from "../../../lib/directus";
-import { readItems } from "@directus/sdk";
-import PostPage from "../../components/PostPage.astro";
-
-const { slug } = Astro.params;
-
-const posts = await directus.request(
-    readItems("posts", {
-        filter: {
-            slug: { _eq: slug },
-            site: { _eq: "marcos_vega" },
-        },
-        limit: 1,
-    }),
-);
-
-const post = posts[0] || null;
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-    const allPosts = await directus.request(
-        readItems("posts", {
-            fields: ["slug"],
-            filter: {
-                site: {
-                    _eq: "marcos_vega",
-                },
-            },
-        }),
-    );
-    console.log(allPosts);
-
-    return allPosts.map((post) => ({
-        params: { slug: post.slug },
-    }));
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug }, 
+    props: { entry },
+  }));
 }
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const date = entry.data.date.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
 ---
 
 <Layout>
-    <PostPage post={post} />
+  <div class="max-w-screen-xl bg-gray-100 shadow-2xl mx-auto p-10 flex-1">
+    <div class="font-serif font-semibold">
+      <p class="py-2"><a href="/blog">blog</a> | {entry.slug}</p>
+      <div class="flex flex-col gap-5">
+        <h1 class="text-4xl hover:text-slate-900">
+          {entry.data.title}
+        </h1>
+        <div class="flex flex-wrap gap-2 mb-2">
+          {entry.data.tags.map((tag) => (
+            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <p class="font-sans text-gray-500 border-t-1 border-b-1 border-gray-300 py-2 mb-2">
+          {date}
+        </p>
+        <div class="font-sans text-gray-800 text-lg prose prose-slate max-w-none">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </div>
 </Layout>
