@@ -1,1 +1,26 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ensure fonts are applied correctly */
+body {
+  font-family: 'Times New Roman', serif;
+}
+
+/* Victoria font alternatives */
+.victoria-font {
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+}
+
+.victoria-font-alt {
+  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+}
+
+/* Override Tailwind defaults */
+.font-sans {
+  font-family: 'Times New Roman', serif !important;
+}
+
+.font-serif {
+  font-family: 'Times New Roman', serif !important;
+}
