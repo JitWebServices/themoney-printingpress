@@ -1,0 +1,20 @@
+{
+  "posts": [
+    {
+      "slug": "medici-bank",
+      "title": "The Medici Bank: Renaissance Wealth Creation",
+      "date": "2024-01-15",
+      "tags": ["Historical Wealth", "Banking", "Renaissance"],
+      "description": "Exploring how the Medici family built one of history's most powerful banking empires and transformed Florence into the financial capital of Europe.",
+      "featured": true
+    },
+    {
+      "slug": "roman-trade",
+      "title": "Modern Lessons from Ancient Roman Trade",
+      "date": "2024-01-10",
+      "tags": ["Economic History", "Trade", "Ancient Rome"],
+      "description": "What today's entrepreneurs can learn from the sophisticated trading networks that powered the Roman Empire's unprecedented wealth.",
+      "featured": false
+    }
+  ]
+}

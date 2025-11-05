@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post - The Money-Printing Press</title>
+    <meta name="description" content="Read the latest insights on wealth creation and financial history.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">The Money-Printing Press</a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="archive.html">Archive</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="calculators.html">Calculators</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Blog Post Content -->
+    <section class="latest-posts">
+        <div class="container">
+            <div class="blog-post">
+                <p class="breadcrumb">
+                    <a href="archive.html">&larr; Back to Archive</a>
+                </p>
+
+                <article class="blog-post-header">
+                    <h1 id="post-title">Loading...</h1>
+                    <div class="post-meta" id="post-tags">
+                        <!-- Tags will be loaded here -->
+                    </div>
+                    <time class="post-date" id="post-date"></time>
+                </article>
+
+                <div class="blog-post-content" id="blog-content">
+                    <!-- Blog content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>The Money-Printing Press</h3>
+                    <p>Exploring the timeless principles of wealth creation through the lens of history.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="archive.html">Archive</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="mailto:contact@example.com">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <form id="newsletter-form" class="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-secondary">Subscribe</button>
+                    </form>
+                    <p id="newsletter-message" class="newsletter-message"></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> The Money-Printing Press. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

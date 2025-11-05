@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive - The Money-Printing Press</title>
+    <meta name="description" content="Browse all articles on historical wealth creation and financial strategy.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">The Money-Printing Press</a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="archive.html" class="active">Archive</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="calculators.html">Calculators</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Archive</h1>
+            <p>Browse all posts on wealth creation, finance, and economic history</p>
+        </div>
+    </section>
+
+    <!-- Browse by Topic -->
+    <section class="topics-section">
+        <div class="container">
+            <h2>Browse by Topic</h2>
+            <div class="topics-grid" id="topics-filter">
+                <button class="topic-tag active" data-tag="all">All Posts</button>
+                <button class="topic-tag" data-tag="Historical Wealth">Historical Wealth</button>
+                <button class="topic-tag" data-tag="Modern Finance">Modern Finance</button>
+                <button class="topic-tag" data-tag="Investment Strategy">Investment Strategy</button>
+                <button class="topic-tag" data-tag="Economic History">Economic History</button>
+                <button class="topic-tag" data-tag="Banking">Banking</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Archive List -->
+    <section class="archive-posts">
+        <div class="container">
+            <div id="archive-posts-container" class="posts-grid">
+                <!-- Posts will be loaded here by JavaScript -->
+            </div>
+            <p id="no-posts-message" class="no-posts" style="display: none;">No posts found for this topic.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>The Money-Printing Press</h3>
+                    <p>Exploring the timeless principles of wealth creation through the lens of history.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="archive.html">Archive</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="mailto:contact@example.com">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <form id="newsletter-form" class="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-secondary">Subscribe</button>
+                    </form>
+                    <p id="newsletter-message" class="newsletter-message"></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> The Money-Printing Press. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

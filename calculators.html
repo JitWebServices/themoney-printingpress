@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Calculators - The Money-Printing Press</title>
+    <meta name="description" content="Free financial calculators for retirement planning, investment growth, and wealth building.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">The Money-Printing Press</a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="archive.html">Archive</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="calculators.html" class="active">Calculators</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Financial Calculators</h1>
+            <p>Tools to help you plan your financial future</p>
+        </div>
+    </section>
+
+    <!-- Retirement Calculator -->
+    <section class="calculator-section">
+        <div class="container">
+            <h2>Retirement Calculator</h2>
+            <p class="calculator-intro">Calculate how much you need to save for retirement based on your desired annual income.</p>
+
+            <div class="calculator-grid">
+                <div class="calculator-form">
+                    <form id="retirement-form">
+                        <div class="form-group">
+                            <label for="annual-income">Desired Annual Retirement Income ($)</label>
+                            <input type="number" id="annual-income" value="50000" min="1000" step="1000" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="years-to-retirement">Years Until Retirement</label>
+                            <input type="number" id="years-to-retirement" value="30" min="1" max="50" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expected-return">Expected Annual Return (%)</label>
+                            <input type="number" id="expected-return" value="7" min="0" max="20" step="0.1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="withdrawal-rate">Safe Withdrawal Rate (%)</label>
+                            <select id="withdrawal-rate">
+                                <option value="1">1% (Very Conservative)</option>
+                                <option value="2">2% (Conservative)</option>
+                                <option value="3">3% (Moderate-Conservative)</option>
+                                <option value="4" selected>4% (Moderate)</option>
+                                <option value="5">5% (Aggressive)</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Calculate</button>
+                    </form>
+                </div>
+
+                <div class="calculator-results" id="results-section" style="display: none;">
+                    <h3>Your Retirement Plan</h3>
+                    <div class="result-item">
+                        <span class="result-label">Target Retirement Corpus:</span>
+                        <span class="result-value" id="target-corpus">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Monthly Savings Required:</span>
+                        <span class="result-value" id="monthly-savings">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Total Contributions:</span>
+                        <span class="result-value" id="total-contributions">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Interest Earned:</span>
+                        <span class="result-value" id="interest-earned">$0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculator-info">
+                <h3>About Safe Withdrawal Rates</h3>
+                <p>The withdrawal rate determines how much of your retirement corpus you can safely withdraw each year. A lower rate means your money will last longer, but you'll need to save more. The traditional "4% rule" suggests that withdrawing 4% annually from your retirement savings should make your money last 30 years, but more conservative approaches use 2-3%.</p>
+
+                <h3>Tips for Retirement Planning</h3>
+                <ul>
+                    <li>Start saving early to benefit from compound interest</li>
+                    <li>Consider inflation when planning your retirement income needs</li>
+                    <li>Diversify your investments to manage risk</li>
+                    <li>Review and adjust your plan regularly</li>
+                    <li>Account for healthcare costs in retirement</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>The Money-Printing Press</h3>
+                    <p>Exploring the timeless principles of wealth creation through the lens of history.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="archive.html">Archive</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="mailto:contact@example.com">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <form id="newsletter-form" class="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-secondary">Subscribe</button>
+                    </form>
+                    <p id="newsletter-message" class="newsletter-message"></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> The Money-Printing Press. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
