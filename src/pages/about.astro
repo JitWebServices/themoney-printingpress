@@ -3,36 +3,35 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<div class="max-w-screen-xl shadow-2xl mx-auto flex-1 text-slate-900" style="background-color: #f6f2ea;">
-		
+	<div style="max-width: 1200px; margin: 0 auto; flex: 1; background-color: #f6f2ea; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);">
+
 		<!-- Main Content -->
-		<section class="py-20" style="background-color: #FBF9F4;">
-			<div class="container mx-auto px-6 max-w-4xl">
-				
-				<!-- Who are you? Section -->
-				<div class="mb-16">
-					<h2 class="text-4xl font-semibold mb-12 victoria-font"
-						style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
+		<section style="padding: 60px 0; background-color: #FBF9F4;">
+			<div style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
+
+				<!-- Who am I? Section -->
+				<div style="margin-bottom: 60px;">
+					<h2 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 600; margin-bottom: 40px; color: #2F4858;">
 						Who am I?
 					</h2>
-					
-					<div class="grid md:grid-cols-4 gap-12 items-start">
+
+					<div style="display: grid; grid-template-columns: 1fr 3fr; gap: 40px; align-items: start;">
 						<!-- Image placeholder -->
-						<div class="md:col-span-1">
-							<div class="w-full aspect-square bg-gradient-to-br from-gray-300 to-gray-400 rounded-lg mb-4 flex items-center justify-center shadow-lg">
-								<span class="text-gray-600 text-6xl">📸</span>
+						<div>
+							<div style="width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, #d1d5db, #9ca3af); border-radius: 8px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+								<span style="font-size: 48px;">📸</span>
 							</div>
-							<p class="text-sm text-slate-500 italic">
+							<p style="font-size: 14px; color: #64748b; font-style: italic;">
 								picture cred
 							</p>
 						</div>
-						
-						<!-- About me content - left aligned, taking up more space -->
-						<div class="md:col-span-3 space-y-6">
-							<p class="text-lg text-slate-700 leading-relaxed">
+
+						<!-- About me content -->
+						<div style="display: flex; flex-direction: column; gap: 20px;">
+							<p style="font-size: 18px; color: #334155; line-height: 1.8;">
 								My name is Marcos. I'm a Cuban-born statistics student and aspiring financial advisor with a growing obsession in answering the question "What lessons does history hide?"
 							</p>
-							<p class="text-lg text-slate-700 leading-relaxed">
+							<p style="font-size: 18px; color: #334155; line-height: 1.8;">
 								I grew up in a world shaped by economic instability and political uncertainty. That experience left a mark. I've since spent years trying to piece together not just how money works, but how people work around it — the systems we build, the beliefs we cling to, and the stories we tell ourselves about value.
 							</p>
 						</div>
@@ -40,103 +39,103 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 
 				<!-- What This Blog Is Section -->
-				<div class="mb-16">
-					<h2 class="text-4xl font-semibold mb-12 victoria-font"
-						style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
+				<div style="margin-bottom: 60px;">
+					<h2 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 600; margin-bottom: 40px; color: #2F4858;">
 						What This Blog Is
 					</h2>
-					
-					<div class="space-y-6">
-						<p class="text-lg text-slate-700 leading-relaxed">
+
+					<div style="display: flex; flex-direction: column; gap: 20px;">
+						<p style="font-size: 18px; color: #334155; line-height: 1.8;">
 							The Money-Printing Press is my attempt at preserving ideas that feel worth preserving while challenging the ones that don't.
 						</p>
-						<p class="text-lg text-slate-700 leading-relaxed">
+						<p style="font-size: 18px; color: #334155; line-height: 1.8;">
 							Some posts will read like personal essays. Others will be sharper, shorter reflections. You'll find thoughts on history, money, behavior, books, travel, culture, and more — all filtered through the lens of someone trying to build a good life with his eyes wide open.
 						</p>
-						<p class="text-lg text-slate-700 leading-relaxed">
+						<p style="font-size: 18px; color: #334155; line-height: 1.8;">
 							There's no publishing schedule or promise of perfection. But there is effort. Every post here has been written with care and a sense of duty — to clarity, to honesty, and to the idea that better thinking leads to better living.
 						</p>
-						<p class="text-lg text-slate-700 leading-relaxed">
+						<p style="font-size: 18px; color: #334155; line-height: 1.8;">
 							This is a quiet corner on the internet. No fluff, no ragebait, no click-churn. Just thought, in print.
 						</p>
 					</div>
 				</div>
 
 				<!-- Follow on Socials Section -->
-				<div class="p-12 rounded-2xl" style="background: linear-gradient(135deg, #9e383d, #7f1d1d);">
-					<h2 class="text-3xl font-semibold text-white mb-6 victoria-font">
+				<div style="padding: 40px; border-radius: 16px; background: linear-gradient(135deg, #9e383d, #7f1d1d);">
+					<h2 style="font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 600; color: white; margin-bottom: 20px;">
 						Follow on Socials!
 					</h2>
-					<p class="text-gray-200 mb-8 max-w-2xl leading-relaxed">
-						Stay connected and get the latest insights on wealth through the ages. 
+					<p style="color: #e5e7eb; margin-bottom: 30px; max-width: 700px; line-height: 1.8;">
+						Stay connected and get the latest insights on wealth through the ages.
 						From quick takes to deeper discussions, find me across these platforms.
 					</p>
-					
+
 					<!-- Social Media Grid -->
-					<div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mb-8">
+					<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 700px; margin-bottom: 30px;">
+						<!-- LinkedIn -->
+						<a
+							href="https://www.linkedin.com/in/marcos-vega-7t/"
+							target="_blank"
+							rel="noopener noreferrer"
+							style="background: rgba(255,255,255,0.1); padding: 24px; border-radius: 8px; text-decoration: none; transition: all 0.2s;"
+							onmouseover="this.style.background='rgba(255,255,255,0.2)'; this.style.transform='scale(1.05)'"
+							onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.transform='scale(1)'"
+						>
+							<div style="width: 48px; height: 48px; margin: 0 auto 12px; border-radius: 50%; background: linear-gradient(135deg, #2563eb, #1e40af); display: flex; align-items: center; justify-content: center;">
+								<span style="font-size: 20px;">💼</span>
+							</div>
+							<h3 style="color: white; font-weight: 600; font-size: 14px; text-align: center; margin-bottom: 4px;">LinkedIn</h3>
+							<p style="color: #d1d5db; font-size: 12px; text-align: center;">Professional</p>
+						</a>
+
 						<!-- Instagram -->
 						<a
-							href="#"
-							class="group bg-white/10 hover:bg-white/20 rounded-lg p-6 transition-all duration-200 hover:scale-105"
+							href="https://www.instagram.com/marcos.mvega/"
+							target="_blank"
+							rel="noopener noreferrer"
+							style="background: rgba(255,255,255,0.1); padding: 24px; border-radius: 8px; text-decoration: none; transition: all 0.2s;"
+							onmouseover="this.style.background='rgba(255,255,255,0.2)'; this.style.transform='scale(1.05)'"
+							onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.transform='scale(1)'"
 						>
-							<div class="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-								<span class="text-white text-xl">📷</span>
+							<div style="width: 48px; height: 48px; margin: 0 auto 12px; border-radius: 50%; background: linear-gradient(135deg, #a855f7, #ec4899); display: flex; align-items: center; justify-content: center;">
+								<span style="font-size: 20px;">📷</span>
 							</div>
-							<h3 class="text-white font-semibold text-sm text-center">Instagram</h3>
-							<p class="text-gray-300 text-xs mt-1 text-center">Visual stories</p>
+							<h3 style="color: white; font-weight: 600; font-size: 14px; text-align: center; margin-bottom: 4px;">Instagram</h3>
+							<p style="color: #d1d5db; font-size: 12px; text-align: center;">Visual stories</p>
 						</a>
-						
-						<!-- Bluesky -->
-						<a
-							href="#"
-							class="group bg-white/10 hover:bg-white/20 rounded-lg p-6 transition-all duration-200 hover:scale-105"
-						>
-							<div class="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-								<span class="text-white text-xl">🦋</span>
-							</div>
-							<h3 class="text-white font-semibold text-sm text-center">Bluesky</h3>
-							<p class="text-gray-300 text-xs mt-1 text-center">Quick thoughts</p>
-						</a>
-						
-						<!-- Reddit -->
-						<a
-							href="#"
-							class="group bg-white/10 hover:bg-white/20 rounded-lg p-6 transition-all duration-200 hover:scale-105"
-						>
-							<div class="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center">
-								<span class="text-white text-xl">📱</span>
-							</div>
-							<h3 class="text-white font-semibold text-sm text-center">Reddit</h3>
-							<p class="text-gray-300 text-xs mt-1 text-center">Discussions</p>
-						</a>
-						
+
 						<!-- Goodreads -->
 						<a
-							href="#"
-							class="group bg-white/10 hover:bg-white/20 rounded-lg p-6 transition-all duration-200 hover:scale-105"
+							href="https://www.goodreads.com/user/show/109021563-marcos"
+							target="_blank"
+							rel="noopener noreferrer"
+							style="background: rgba(255,255,255,0.1); padding: 24px; border-radius: 8px; text-decoration: none; transition: all 0.2s;"
+							onmouseover="this.style.background='rgba(255,255,255,0.2)'; this.style.transform='scale(1.05)'"
+							onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.transform='scale(1)'"
 						>
-							<div class="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-yellow-600 to-amber-700 flex items-center justify-center">
-								<span class="text-white text-xl">📚</span>
+							<div style="width: 48px; height: 48px; margin: 0 auto 12px; border-radius: 50%; background: linear-gradient(135deg, #ca8a04, #92400e); display: flex; align-items: center; justify-content: center;">
+								<span style="font-size: 20px;">📚</span>
 							</div>
-							<h3 class="text-white font-semibold text-sm text-center">Goodreads</h3>
-							<p class="text-gray-300 text-xs mt-1 text-center">Reading list</p>
+							<h3 style="color: white; font-weight: 600; font-size: 14px; text-align: center; margin-bottom: 4px;">Goodreads</h3>
+							<p style="color: #d1d5db; font-size: 12px; text-align: center;">Reading list</p>
 						</a>
 					</div>
-					
+
 					<!-- Call to action -->
-					<div class="flex flex-col sm:flex-row gap-4">
+					<div style="display: flex; gap: 15px; flex-wrap: wrap;">
 						<a
 							href="mailto:marcos@moneyprinting.press"
-							class="inline-block bg-white text-slate-800 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition shadow-lg"
+							style="display: inline-block; background: white; color: #1e293b; font-weight: 600; padding: 12px 32px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+							onmouseover="this.style.background='#f3f4f6'"
+							onmouseout="this.style.background='white'"
 						>
 							Email Me
 						</a>
 						<a
 							href="/archive"
-							class="inline-block border-2 text-white font-semibold px-8 py-3 rounded-lg transition shadow-lg"
-							style="border-color: #B08A30; color: #B08A30;"
-							onmouseover="this.style.backgroundColor='#B08A30'; this.style.color='#9e383d';"
-							onmouseout="this.style.backgroundColor='transparent'; this.style.color='#B08A30';"
+							style="display: inline-block; border: 2px solid #B08A30; color: #B08A30; background: transparent; font-weight: 600; padding: 12px 32px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+							onmouseover="this.style.background='#B08A30'; this.style.color='#9e383d'"
+							onmouseout="this.style.background='transparent'; this.style.color='#B08A30'"
 						>
 							Read the Archive
 						</a>
@@ -146,9 +145,3 @@ import Layout from '../layouts/Layout.astro';
 		</section>
 	</div>
 </Layout>
-
-<style>
-	.victoria-font {
-		font-family: 'Victoria', 'Times New Roman', serif;
-	}
-</style>

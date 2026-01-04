@@ -14,80 +14,63 @@ const getUrl = (path: string) => {
 };
 ---
 
-<div class="max-w-screen-xl shadow-2xl mx-auto flex-1 text-slate-900" style="background-color: #f6f2ea;">
-	
-	<!-- Hero Section - Fixed height and positioning -->
-	<section class="relative h-[500px] overflow-hidden">
-		<img
-		  src={getUrl('/images/home-page-hero.jpg')}
-		  alt="Early world map symbolizing historical trade and wealth"
-		  class="absolute inset-0 w-full h-full object-cover object-center"
-		  style="filter: contrast(1.05) brightness(0.92);"
-		  loading="lazy"
-		  decoding="async"
-		  onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9C272E 0%, #B83339 25%, #9C272E 50%, #B83339 75%, #9C272E 100%)';"
-		/>
-		<!-- Enhanced overlay for better text readability -->
-		<div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/20"></div>
-	  
-		<!-- Centered content with adjusted positioning -->
-		<div class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
-		  <!-- Main body positioned higher -->
-		  <div class="transform -translate-y-18">
-			<h1 class="font-serif tracking-tight text-lg md:text-2xl mb-6 text-[#f6f2ea] ">
-				The Money‑Printing Press uncovers the recurring patterns inside stories of merchants,
-				empires, and markets—how fortunes were built, defended, and lost. Each issue distills a
-				single principle you can use now.
-			</h1>
-			<div class="w-20 h-[3px] bg-[#B08A30] mb-8 mx-auto"></div>
-		  </div>
-		  
-		  <!-- subscriber -->
-		  <div class="max-w-lg mx-auto px-4 -translate-y-20">
-			<p class="font-serif text-lg md:text-xl leading-relaxed text-[#f6f2ea] tracking-wide text-center ">
-				Join early readers for one focused historical finance lesson each week.
-			</p>
-		  </div>
-		</div>
-	  
-		<!-- Subtle bottom fade -->
-		<div class="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
-	</section>
+<div style="display: grid; grid-template-columns: 1fr 350px; gap: 0; max-width: 1400px; margin: 0 auto; flex: 1;">
 
-	<!-- Latest Posts Section -->
-	<section class="py-20" style="background-color: #FBF9F4;">
-		<div class="container mx-auto px-6 max-w-6xl">
-			<h2 class="text-4xl font-semibold mb-12 text-center victoria-font"
-				style="font-family: 'Victoria', 'Times New Roman', serif; color: #2F4858;">
+	<!-- Left Column - Main Content -->
+	<div style="background-color: #f6f2ea;">
+
+		<!-- Hero Section -->
+		<section style="position: relative; height: 350px; overflow: hidden;">
+			<img
+			  src={getUrl('/images/home-page-hero.jpg')}
+			  alt="Early world map symbolizing historical trade and wealth"
+			  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7);"
+			/>
+			<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3);"></div>
+
+			<div style="position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 20px; text-align: center;">
+				<h1 style="font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 20px; color: #f6f2ea; max-width: 800px; line-height: 1.5;">
+					The Money‑Printing Press uncovers the recurring patterns inside stories of merchants,
+					empires, and markets—how fortunes were built, defended, and lost. Each issue distills a
+					single principle you can use now.
+				</h1>
+				<div style="width: 80px; height: 3px; background: #B08A30; margin-bottom: 20px;"></div>
+				<p style="font-family: 'Playfair Display', serif; font-size: 20px; color: #f6f2ea; max-width: 600px;">
+					Join early readers for one focused historical finance lesson each week.
+				</p>
+			</div>
+		</section>
+
+		<!-- Latest Posts Section -->
+		<section style="padding: 60px 40px; background-color: #FBF9F4;">
+			<h2 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 600; margin-bottom: 40px; color: #2F4858;">
 				Latest Insights
 			</h2>
-			
-			<div class="grid md:grid-cols-1 gap-8 mb-12">
+
+			<div style="display: flex; flex-direction: column; gap: 30px; margin-bottom: 40px;">
 				{recentPosts.map((post) => (
-					<div class="border-b border-gray-200 pb-8 last:border-b-0">
-						<div class="p-4 mx-auto">
-							<a href={getUrl(`/blog/${post.slug}`)} class="font-semibold">
-								<div class="flex flex-col gap-3">
-									<h2 class="text-3xl hover:text-slate-900 transition-colors duration-200"
-										style="hover:color: #9e383d;">
+					<div style="border-bottom: 1px solid #e5e7eb; padding-bottom: 30px;">
+						<div style="padding: 15px;">
+							<a href={getUrl(`/blog/${post.slug}`)} style="text-decoration: none;">
+								<div style="display: flex; flex-direction: column; gap: 12px;">
+									<h2 style="font-size: 28px; color: #2F4858; font-family: 'Playfair Display', serif;">
 										{post.data.title}
 									</h2>
-									<div class="flex flex-wrap gap-2 mb-2">
+									<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
 										{post.data.tags.map((tag) => (
-											<span class="text-gray-700 px-3 py-1 rounded-full text-sm border-2"
-												  style="background-color: #f9f9f9; border-color: #d4af37; color: #7f1d1d;">
+											<span style="background-color: #f9f9f9; border: 2px solid #d4af37; color: #7f1d1d; padding: 4px 12px; border-radius: 20px; font-size: 14px;">
 												{tag}
 											</span>
 										))}
 									</div>
-									<p class="text-gray-500 border-t-1 border-b-1 border-gray-300 py-2 mb-2">
+									<p style="color: #6b7280; padding: 8px 0; margin-bottom: 8px;">
 										{post.data.date.toLocaleDateString("en-US", {
 											year: "numeric",
-											month: "long", 
+											month: "long",
 											day: "numeric",
 										})}
 									</p>
-									<div class="text-gray-700 text-xl leading-relaxed">
+									<div style="color: #374151; font-size: 18px; line-height: 1.6;">
 										{post.data.description}
 									</div>
 								</div>
@@ -96,18 +79,56 @@ const getUrl = (path: string) => {
 					</div>
 				))}
 			</div>
-			
-			<div class="text-center">
+
+			<div style="text-align: center;">
 				<a
 					href={getUrl('/archive')}
-					class="inline-block text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
-					style="background: linear-gradient(135deg, #9e383d, #7f1d1d);"
+					style="display: inline-block; color: white; font-weight: 600; padding: 12px 32px; border-radius: 8px; background: linear-gradient(135deg, #9e383d, #7f1d1d); text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
 					onmouseover="this.style.transform='translateY(-2px)'"
 					onmouseout="this.style.transform='translateY(0)'"
 				>
 					View All Posts
 				</a>
 			</div>
+		</section>
+	</div>
+
+	<!-- Right Column - Mini About Sidebar -->
+	<div style="background-color: #f6f2ea; padding: 40px 30px;">
+		<div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 20px;">
+			<div style="text-align: center; margin-bottom: 20px;">
+				<div style="width: 120px; height: 120px; margin: 0 auto 15px; background: linear-gradient(135deg, #d1d5db, #9ca3af); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+					<span style="font-size: 60px;">📸</span>
+				</div>
+				<h3 style="font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 600; color: #2F4858; margin-bottom: 5px;">
+					Marcos Vega
+				</h3>
+				<p style="color: #6b7280; font-size: 14px; font-style: italic;">
+					Author
+				</p>
+			</div>
+
+			<p style="color: #374151; font-size: 16px; line-height: 1.7; margin-bottom: 20px;">
+				A Cuban-born statistics student and aspiring financial advisor with a growing obsession in answering the question "What lessons does history hide?"
+			</p>
+
+			<div style="margin-bottom: 20px;">
+				<a href={getUrl('/about')} style="display: block; width: 100%; text-align: center; color: white; font-weight: 600; padding: 10px; border-radius: 6px; background: linear-gradient(135deg, #9e383d, #7f1d1d); text-decoration: none; margin-bottom: 10px;">
+					Read More About Me
+				</a>
+			</div>
+
+			<div style="border-top: 1px solid #e5e7eb; padding-top: 20px;">
+				<h4 style="font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; color: #2F4858; margin-bottom: 12px;">
+					Connect
+				</h4>
+				<div style="display: flex; flex-direction: column; gap: 8px;">
+					<a href="https://www.linkedin.com/in/marcos-vega-7t/" target="_blank" style="color: #9e383d; text-decoration: none; font-size: 14px;">→ LinkedIn</a>
+					<a href="https://www.instagram.com/marcos.mvega/" target="_blank" style="color: #9e383d; text-decoration: none; font-size: 14px;">→ Instagram</a>
+					<a href="https://www.goodreads.com/user/show/109021563-marcos" target="_blank" style="color: #9e383d; text-decoration: none; font-size: 14px;">→ Goodreads</a>
+				</div>
+			</div>
 		</div>
-	</section>
+	</div>
+
 </div>
